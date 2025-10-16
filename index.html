@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Combat Fight Club Kollam — Boxing, Kickboxing, MMA, Muay Thai, Wushu. Train hard. Fight smart. Rise strong." />
+  <title>Combat Fight Club Kollam</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Theme Colors for mobile/browser -->
+  <meta name="theme-color" content="#000000">
+
+  <style>
+  :root {
+    --black: #000000;
+    --red: #D50000;
+    --muted: #e8e8e8;
+    --glass: rgba(255,255,255,0.04);
+    --radius: 16px;
+    --max-width: 1200px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--black);
+    color: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.6));
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .nav-wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+    flex-wrap: wrap;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo img { width: 84px; height: 84px; object-fit: contain; border-radius: 8px; }
+  .site-title { font-family: Oswald, sans-serif; font-size: 22px; letter-spacing: 1px; }
+
+  nav { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  nav a {
+    padding: 8px 6px;
+    border-radius: 6px;
+    transition: all .22s;
+    opacity: .95;
+  }
+  nav a:hover { transform: translateY(-2px); text-shadow: 0 0 8px rgba(213,0,0,0.12); }
+  .cta-btn {
+    background: var(--red);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .menu-toggle { display: none; font-size: 24px; background: none; border: none; cursor: pointer; color: white; }
+
+  /* Hero */
+  .hero {
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    align-items: center;
+    gap: 24px;
+    max-width: var(--max-width);
+    margin: 30px auto;
+    padding: 30px;
+  }
+  .hero h1 {
+    font-family: Oswald;
+    font-size: 48px;
+    margin: 0 0 8px;
+    line-height: 1;
+  }
+  .hero p { color: #ddd; margin: 0 0 18px; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    cursor: pointer;
+    color: #fff;
+  }
+  .btn-primary { background: var(--red); color: #fff; border: none; }
+
+  .hero-right { display: flex; align-items: center; justify-content: center; }
+  .logo-hero {
+    width: 260px;
+    height: 260px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(213,0,0,0.12), rgba(0,0,0,0.6));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .rolling-divider {
+  background: #111;
+  color: #fff;
+  padding: 10px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 18s linear infinite;
+  font-family: Oswald;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #d50000;
+}
+
+@keyframes scrollText {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+  /* Sections */
+  section {
+    max-width: var(--max-width);
+    margin: 28px auto;
+    padding: 26px;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .section-head h2 { font-family: Oswald; margin: 0; font-size: 26px; }
+  .cards, .fighters, .gallery-grid, .shop-grid {
+    display: grid;
+    gap: 16px;
+  }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .fighters { grid-template-columns: repeat(4, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  .shop-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .card, .product {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 18px;
+  }
+  input, select, textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    color: #fff;
+  }
+
+  /* Footer */
+  footer {
+    padding: 24px 0;
+    background: #050505;
+    border-top: 1px solid rgba(255,255,255,0.02);
+  }
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* --- RESPONSIVE BREAKPOINTS --- */
+  @media (max-width: 1000px) {
+    .hero { grid-template-columns: 1fr 260px; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .fighters { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 700px) {
+    nav { display: none; width: 100%; flex-direction: column; background: rgba(0,0,0,0.9); padding: 10px; border-radius: 8px; margin-top: 10px; }
+    nav a { padding: 10px; text-align: center; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .menu-toggle { display: block; }
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 18px;
+    }
+    .hero h1 { font-size: 34px; }
+    .hero-right { order: -1; margin-bottom: 10px; }
+    .cards, .fighters, .gallery-grid, .shop-grid { grid-template-columns: 1fr; }
+    .logo img { width: 64px; height: 64px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 15px; }
+    .cta-btn { padding: 8px 12px; font-size: 14px; }
+    .section-head h2 { font-size: 22px; }
+    .card, .product { padding: 12px; }
+    .logo-hero { width: 200px; height: 200px; }
+  }
+
+  /* Animations */
+  .fade-in { opacity: 0; transform: translateY(10px); transition: all .6s ease-out; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  .roller { overflow: hidden; height: 34px; }
+  .roller-list { display: inline-block; padding-left: 6px; white-space: nowrap; animation: roll 9s linear infinite; }
+  @keyframes roll { 0% { transform: translateX(0); } 50% { transform: translateX(-48%); } 100% { transform: translateX(0); } }
+</style>
+
+</head>
+<body>
+
+  <header>
+    <div class="nav-wrap">
+      <div class="logo">
+        <img src="images/gloves.png">
+        <div>
+          <div class="site-title">Combat Fight Club Kollam</div>
+          <div class="small">Boxing • Kickboxing • MMA • Muay Thai • Wushu</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#styles">Styles</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="cta-btn">Join Now</button>
+        <button class="menu-toggle" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-label="Hero section">
+      <div class="hero-left">
+        <h1>Welcome to Combat Fight Club Kollam</h1>
+        <p>Train Hard. Fight Smart. Rise Strong.</p>
+
+        <div class="roller" aria-hidden="true">
+          <div class="roller-list small" id="rollerList">Boxing • Kickboxing • MMA • Wushu • Muay Thai • Boxing • Kickboxing • MMA</div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Join the Club</button>
+          <a class="btn" href="#styles">View Programs</a>
+        </div>
+
+        <div style="margin-top:16px;color:#ddd;font-size:14px">Experienced trainers • Competitive coaching • Youth & adults</div>
+      </div>
+
+      <div class="hero-right">
+        <div class="logo-hero">
+          <!-- Replace the SVG with your club logo image file by editing the src -->
+          <img src="images/gloves.png">
+        </div>
+      </div>
+    </section>
+<!-- Rolling Text Divider -->
+<div class="rolling-divider">
+  <div class="scrolling-text">
+    🥊 Boxing • 🥋 Kickboxing • 🐉 MMA • 🦵 Muay Thai • ⚡ Wushu • 💪 Strength • Discipline • Respect • Focus
+  </div>
+</div>
+
+    <!-- About -->
+    <section id="about" class="fade-in">
+      <div class="section-head"><h2>About Us</h2><div class="small">Discipline • Strength • Community</div></div>
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <p>Combat Fight Club Kollam is a professional martial arts academy located in Kollam, Kerala. We focus on Boxing, Kickboxing, MMA, Muay Thai and Wushu — training athletes for fitness and competitive success. Our mission is to build discipline, confidence and strong fighters by a blend of modern coaching and traditional values.</p>
+          <p class="small">Certified trainers • Personalized programs • Competition preparation</p>
+        </div>
+        <div style="width:360px;border-radius:12px;overflow:hidden"><img src="/images/club image.webp"></div>
+      </div>
+    </section>
+<!-- Coach Section -->
+<section id="coach" class="fade-in">
+  <div class="section-head">
+    <h2>Our Coach</h2>
+    <div class="small">Guiding the next generation of fighters</div>
+  </div>
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <p><strong>Coach Sharath S</strong> — Founder and Head Coach of Combat Fight Club Kollam. With over 15 years of experience in Boxing, Kickboxing, and MMA, Coach Arun has trained numerous state and national medalists. His approach blends discipline, mental strength, and advanced fight techniques to bring out the best in every athlete.</p>
+      <p class="small">Certifications: National Level Coach (MMA India), Certified Muay Thai Trainer, Strength & Conditioning Specialist</p>
+    </div>
+    <div style="width:340px;border-radius:12px;overflow:hidden">
+      <img src="/images/anoj coach.jpg" alt="Coach Arun Raj">
+    </div>
+  </div>
+</section>
+
+    <!-- Styles -->
+    <section id="styles" class="fade-in">
+      <div class="section-head"><h2>Training Styles</h2><div class="small">Choose your discipline</div></div>
+      <div class="cards">
+        <article class="card">
+          <h3>Boxing 🥊</h3>
+          <p>Footwork, head movement, powerful combos, and conditioning — for beginners to advanced fighters.</p>
+          <div style="margin-top:10px"><a class="small" href="#contact">Learn More / Enroll</a></div>
+        </article>
+        <article class="card">
+          <h3>Kickboxing</h3>
+          <p>Stand-up striking with kicks and punches. Great for fitness and competitive fighting.</p>
+        </article>
+        <article class="card">
+          <h3>MMA</h3>
+          <p>Comprehensive mixed martial arts training: striking, grappling, takedowns and cage strategy.</p>
+        </article>
+        <article class="card">
+          <h3>Muay Thai</h3>
+          <p>The art of eight limbs — clinch work, elbows and knees with authentic Muay Thai drills.</p>
+        </article>
+        <article class="card">
+          <h3>Wushu</h3>
+          <p>Traditional and modern forms focused on speed, technique, and performance-based training.</p>
+        </article>
+        <article class="card">
+          <h3>Personal Coaching</h3>
+          <p>One-on-one sessions and custom programs for competition prep or fitness goals.</p>
+        </article>
+      </div>
+    </section>
+
+   <!-- Achievements -->
+<section id="achievements" class="fade-in">
+  <div class="section-head">
+    <h2>Our Championship Journey</h2>
+    <div class="small">Proud moments & victories</div>
+  </div>
+
+  <div class="achievements-grid" style="display:grid;gap:16px;grid-template-columns:repeat(4,1fr);">
+    <div class="achievement card">
+      <img src="/images/anoj.jpg" alt="Achievement 1">
+      <div class="meta">
+        <strong>Kudo Association MMA Championship 2024</strong>
+        <div class="small">Overall team champions with multiple medals across categories.</div>
+      </div>
+    </div>
+
+    <div class="achievement card">
+      <img src="/images/grp pic kak.jpg" alt="Achievement 2">
+      <div class="meta">
+        <strong>State Kickboxing Championship 2023</strong>
+        <div class="small">Gold and silver medalists in various weight classes.</div>
+      </div>
+    </div>
+
+    <div class="achievement card">
+      <img src="/images/grp pic bus.jpg" alt="Achievement 3">
+      <div class="meta">
+        <strong>Muay Thai Nationals 2022</strong>
+        <div class="small">Strong representation at national level with 3 podium finishes.</div>
+      </div>
+    </div>
+
+    <div class="achievement card">
+      <img src="/images/grp pic.jpg" alt="Achievement 4">
+      <div class="meta">
+        <strong>Wushu District Meet 2021</strong>
+        <div class="small">Youth division champions and emerging fighters of the year.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <div class="fighters">
+  <div class="fighter card">
+    <img src="/images/anoj.jpg" alt="Fighter 1">
+    <div class="meta"><strong>Anoj Philip</strong><div class="small">Muay Thai Pro Belt Champion</div></div>
+  </div>
+  <div class="fighter card">
+    <img src="/images/gayathri.jpg" alt="Fighter 2">
+    <div class="meta"><strong>Gayathri</strong><div class="small">Champion - State Kickboxing 2023</div></div>
+  </div>
+  <div class="fighter card">
+    <img src="/images/gayathri.jpg" alt="Fighter 3">
+    <div class="meta"><strong>Gaya</strong><div class="small">MMA Prospect</div></div>
+  </div>
+  <div class="fighter card">
+    <img src="/images/anoj.jpg" alt="Fighter 4">
+    <div class="meta"><strong>Anoj</strong><div class="small">Muay Thai - National Level</div></div>
+  </div>
+
+  <!-- New Fighters -->
+  <div class="fighter card">
+    <img src="/images/anoj.jpg" alt="Fighter 5">
+    <div class="meta"><strong>Anoj</strong><div class="small">Boxing - State Gold Medalist</div></div>
+  </div>
+  <div class="fighter card">
+    <img src="/images/gayathri.jpg" alt="Fighter 6">
+    <div class="meta"><strong>Gaya</strong><div class="small">Wushu - National Bronze</div></div>
+  </div>
+  <div class="fighter card">
+    <img src="/images/gayathri.jpg" alt="Fighter 7">
+    <div class="meta"><strong>Gaya</strong><div class="small">MMA - Rising Star</div></div>
+  </div>
+</div>
+
+
+    <!-- Gallery -->
+    <section id="gallery" class="fade-in">
+      <div class="section-head"><h2>Gallery</h2><div class="small">Training, tournaments, and moments</div></div>
+      <div class="gallery-grid">
+        <img src="/images/club image.webp" alt="training-1">
+        <img src="/images/grp pic bus.jpg" alt="training-3">
+        <img src="/images/grp pic kak.jpg" alt="training-2">
+        <img src="/images/grp pic.jpg" alt="training-4">
+      </div>
+    </section>
+
+    <!-- Shop -->
+ <section id="shop" class="fade-in">
+  <div class="section-head">
+    <h2>Shop</h2>
+    <div class="small">Official Merchandise</div>
+  </div>
+
+  <div class="shop-grid">
+    <div class="product">
+      <img src="images/gloves.png" alt="Combat Fight Club Uniform">
+      <h3>Official Uniform</h3>
+    </div>
+    <div class="product">
+      <img src="images/gloves.png" alt="Combat Fight Club T-Shirt">
+      <h3>Club T-Shirt</h3>
+    </div>
+    <div class="product">
+      <img src="images/gloves.png" alt="Combat Fight Club Shorts">
+      <h3>Training Shorts</h3>
+    </div>
+    <div class="product">
+      <img src="images/gloves.png" alt="Boxing Gloves">
+      <h3>Boxing Gloves</h3>
+    </div>
+    <div class="product">
+      <img src="images/gloves.png" alt="Shin Guards">
+      <h3>Shin Guards</h3>
+    </div>
+    <div class="product">
+      <img src="images/gloves.png" alt="Other Accessories">
+      <h3>Accessories</h3>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:20px;">
+    <p>To order Combat Fight Club Kollam merchandise like uniforms, T-shirts, shorts, gloves, and shin guards, please contact us directly.</p>
+    <h3>📞 Call or WhatsApp: 
+      <a href="tel:+919000000000" style="color:#d50000; text-decoration:none;">+91 90000 00000</a>
+    </h3>
+  </div>
+</section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in">
+      <div class="section-head"><h2>Contact & Location</h2><div class="small">Get in touch</div></div>
+      <div class="contact-grid">
+        <div>
+          <p><strong>Address</strong><br>Combat Fight Club Kollam<br>Kollam, Kerala, India</p>
+          <p><strong>Phone / WhatsApp</strong><br><a href="tel:+91xxxxxxxxxx">+91 xxxxxxxxxx</a></p>
+          <p><strong>Opening hours</strong><br>Mon–Sat: 6:00 AM – 9:00 PM</p>
+
+          <h3 class="small">Send us a message</h3>
+          <form onsubmit="return contactSubmit(event)">
+            <input name="name" placeholder="Your name" required>
+            <input name="email" placeholder="Email (optional)">
+            <input name="phone" placeholder="Mobile number" pattern="[0-9]{10}" required>
+            <textarea name="message" placeholder="Your message" required></textarea>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <div class="map-placeholder" aria-hidden="true">Google Map embed placeholder<br><small class="small">Replace with iframe embed or Google Maps component</small></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2025 Combat Fight Club Kollam. All rights reserved.</div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Order modal / confirmation (simple) -->
+  <div id="orderModal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:80">
+    <div style="background:#0b0b0b;padding:18px;border-radius:12px;max-width:420px;width:95%">
+      <h3 id="om-title">Order placed</h3>
+      <div id="om-body" style="color:#ddd;font-size:14px"></div>
+      <div style="margin-top:12px;display:flex;justify-content:flex-end"><button class="btn" onclick="document.getElementById('orderModal').style.display='none'">Close</button></div>
+    </div>
+  </div>
+
+  <script>
+    // Simple interactivity
+    document.addEventListener('DOMContentLoaded',()=>{
+      // reveal sections on scroll
+      const observers = document.querySelectorAll('.fade-in');
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible') })
+      },{threshold:0.12});
+      observers.forEach(el=>io.observe(el));
+
+      // menu toggle
+      const toggle = document.querySelector('.menu-toggle');
+      toggle.addEventListener('click',()=>{
+        const nav = document.querySelector('nav');
+        const open = nav.style.display !== 'flex';
+        nav.style.display = open ? 'flex' : 'none';
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    // Order capture (client-side demo) — replace with server-side integration
+    function placeOrder(e,form,productName,price){
+      e.preventDefault();
+      const fd = new FormData(form);
+      const order = {
+        product: productName,
+        price: price,
+        size: fd.get('size'),
+        qty: fd.get('qty'),
+        name: fd.get('name'),
+        mobile: fd.get('mobile'),
+        address: fd.get('address'),
+        payment: 'Cash on Delivery'
+      };
+      // Basic validation for Indian mobile number
+      if(!/^[0-9]{10}$/.test(order.mobile)){
+        alert('Please enter a valid 10-digit mobile number');
+        return false;
+      }
+      // Here: send order to your backend / WhatsApp API / Google Sheets.
+      // For demo, we show a confirmation modal and copy order to clipboard
+      const body = `Product: ${order.product}\nPrice: ₹${order.price}\nSize: ${order.size}\nQty: ${order.qty}\nName: ${order.name}\nMobile: ${order.mobile}\nAddress: ${order.address}\nPayment: ${order.payment}`;
+      document.getElementById('om-title').innerText = 'Order Summary';
+      document.getElementById('om-body').innerText = body + '\n\nA club representative will contact you on the provided mobile number.';
+      document.getElementById('orderModal').style.display='flex';
+
+      // copy to clipboard to help manual order receive
+      navigator.clipboard?.writeText(body).catch(()=>{});
+
+      // optionally, open WhatsApp prefilled message (uncomment and replace club number)
+      // const clubNumber = '919876543210';
+      // const waUrl = `https://wa.me/${clubNumber}?text=${encodeURIComponent(body)}`;
+      // window.open(waUrl,'_blank');
+
+      form.reset();
+      return false;
+    }
+
+    function contactSubmit(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const name = fd.get('name');
+      const phone = fd.get('phone');
+      if(!/^[0-9]{10}$/.test(phone)){ alert('Please enter a valid 10-digit mobile number'); return false }
+      alert('Thanks ' + name + '! We will contact you soon on ' + phone);
+      e.target.reset();
+      return false;
+    }
+
+  </script>
+</body>
+</html>
