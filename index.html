@@ -29,7 +29,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- 1. NAVBAR WITH LOGO --- */
+        /* --- 1. NAVBAR WITH HAMBURGER & ANIMATED TEXT --- */
         .navbar {
             background-color: var(--dotin-blue);
             padding: 10px 5%;
@@ -41,21 +41,87 @@
             top: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
         }
 
         .club-logo { height: 50px; width: auto; cursor: pointer; transition: 0.3s; }
         .club-logo:hover { transform: scale(1.05); }
 
-        .nav-links { display: flex; align-items: center; }
+        .brand-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            margin-left: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, var(--combat-red), #fff, #8ab4f8);
+            background-size: 300% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 300% center; }
+        }
+
+        .hamburger {
+            font-size: 1.8rem;
+            color: var(--text-white);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .hamburger:hover { color: var(--combat-red); }
+
+        .nav-links { 
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 2000;
+            border-left: 3px solid var(--dotin-blue);
+        }
         
         .nav-links a {
-            color: var(--text-white); text-decoration: none; margin-left: 25px;
-            font-weight: 600; font-size: 14px; text-transform: uppercase; transition: 0.3s;
+            color: var(--text-white); 
+            text-decoration: none; 
+            margin: 20px 0;
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+            letter-spacing: 2px;
         }
-        .nav-links a:hover { color: var(--combat-red); }
+        
+        .nav-links a:hover { color: var(--combat-red); transform: scale(1.1); }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: var(--combat-red);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-menu:hover { transform: rotate(90deg); }
 
         /* --- 2. HOME / HERO SECTION --- */
-        .hero { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 50px; }
         #bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: -1; filter: brightness(0.4); }
         .hero-content { text-align: center; z-index: 1; padding: 0 20px; margin-bottom: 50px; width: 100%; }
         .hero-content .top-title { color: var(--text-white); font-size: 1.2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
@@ -103,9 +169,113 @@
         .insta-btn-container { margin-top: 50px; }
         .insta-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 15px 30px; text-decoration: none; font-weight: 700; border-radius: 30px; display: inline-flex; align-items: center; gap: 10px; font-size: 1.1rem; text-transform: uppercase; box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4); transition: 0.3s; animation: pulse-insta 2s infinite; }
         .insta-btn:hover { transform: scale(1.05); animation: none; box-shadow: 0 10px 25px rgba(220, 39, 67, 0.6); }
-        @keyframes pulse-insta { 0% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(220, 39, 67, 0); } 100% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0); } }
 
-        /* --- 6. UPDATES SECTION --- */
+        /* --- 6. TRAINERS SECTION --- */
+        .trainers-section { padding: 100px 5%; background: linear-gradient(135deg, #000000 0%, #001f3f 100%); text-align: center; }
+        .trainers-section .section-header h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: #8ab4f8; margin-bottom: 10px; letter-spacing: 2px; text-shadow: 0px 5px 15px rgba(0, 86, 179, 0.5); }
+        .trainers-grid { display: flex; justify-content: center; gap: 50px; margin-top: 120px; flex-wrap: wrap; }
+        
+        /* Required for the border animation to work smoothly */
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .trainer-card { 
+            width: 320px; 
+            border-radius: 20px; 
+            position: relative; 
+            padding: 0 20px 40px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); 
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        /* Animated Glowing Border */
+        .trainer-card::before {
+            content: '';
+            position: absolute;
+            inset: -3px; /* Border thickness */
+            border-radius: 22px; /* Slightly larger than card */
+            background: conic-gradient(from var(--angle), transparent 50%, var(--dotin-blue) 80%, var(--combat-red) 100%);
+            z-index: -2;
+            animation: spin-border 3s linear infinite;
+        }
+
+        /* Solid background to cover inner portion of the border */
+        .trainer-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, #111, #1a1a1a);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        @keyframes spin-border {
+            0% { --angle: 0deg; }
+            100% { --angle: 360deg; }
+        }
+
+        .trainer-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 30px rgba(0, 86, 179, 0.4); }
+
+        .trainer-img-wrap { 
+            width: 100%; 
+            height: 150px; 
+            position: relative; 
+            z-index: 10;
+        }
+
+        .trainer-img { 
+            width: 95%; 
+            position: absolute; 
+            bottom: 0%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            z-index: 10; 
+            filter: drop-shadow(0 -10px 20px rgba(0,0,0,0.6));
+            transition: transform 0.4s ease;
+            pointer-events: none;
+            /* Smooth Blend Effect at the bottom of the image */
+            -webkit-mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px);
+            mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px);
+        }
+
+        .trainer-card:hover .trainer-img { transform: translateX(-50%) scale(1.08); }
+
+        .trainer-details { padding-top: 20px; position: relative; z-index: 5; }
+        .trainer-details h3 { font-family: 'Anton', sans-serif; font-size: 2rem; color: #fff; letter-spacing: 1px; margin-bottom: 5px; text-transform: uppercase; }
+        
+        .trainer-details .role { color: #8ab4f8; font-size: 1.1rem; font-weight: 800; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; }
+        .trainer-details .sub-role { color: #aaaaaa; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; display: block;}
+
+        .trainer-ig-btn { 
+            width: 60px; 
+            height: 60px; 
+            margin: 0 auto;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            background: linear-gradient(145deg, #1f1f1f, #0a0a0a); 
+            border-radius: 50%; 
+            font-size: 1.8rem; 
+            color: #E1306C; 
+            box-shadow: 5px 5px 15px #050505, -5px -5px 15px #252525; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            text-decoration: none; 
+            border: 2px solid transparent;
+        }
+        
+        .trainer-ig-btn:hover { 
+            transform: translateY(-8px) scale(1.1); 
+            color: #fff;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            box-shadow: 0 10px 25px rgba(225, 48, 108, 0.5); 
+            border-color: #fff;
+        }
+
+        /* --- 7. UPDATES SECTION --- */
         .updates-section { padding: 100px 5%; background: linear-gradient(135deg, #ffffff 0%, #ebf4fc 100%); text-align: center; color: #333; }
         .updates-section .section-header h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: var(--dotin-blue); margin-bottom: 10px; letter-spacing: 2px; }
         .updates-section .section-header p { color: #555; font-size: 1.1rem; margin-bottom: 50px; font-weight: 600; }
@@ -121,7 +291,7 @@
         .update-btn { background-color: var(--dotin-blue); color: white; padding: 15px 35px; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3); width: fit-content; }
         .update-btn:hover { background-color: #004494; transform: scale(1.05); color: #fff; }
 
-        /* --- 7. MEMORIAL SECTION --- */
+        /* --- 8. MEMORIAL SECTION --- */
         .memorial-section { padding: 80px 5%; text-align: center; color: var(--text-white); position: relative; border-top: 2px solid rgba(255, 49, 49, 0.3); border-bottom: 2px solid rgba(0, 86, 179, 0.3); overflow: hidden; background-color: #000; }
         .memorial-bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: 1; filter: brightness(0.3); object-fit: cover; }
         .memorial-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
@@ -133,7 +303,7 @@
         .memorial-quote { font-size: 1.1rem; font-style: italic; line-height: 1.8; color: #ddd; font-weight: 400; }
         .memorial-quote strong { color: var(--combat-red); font-weight: 700; }
 
-        /* --- 8. BRANCHES SECTION (Updated for Animated Counters) --- */
+        /* --- 9. BRANCHES SECTION --- */
         .branches-section { padding: 80px 5%; background-color: var(--text-white); text-align: center; color: #000; }
         .branches-section h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: var(--combat-red); margin-bottom: 5px; }
         .branches-section .hint { color: #666; font-size: 0.95rem; font-weight: 600; margin-bottom: 50px; }
@@ -142,7 +312,6 @@
         .branch-card { background: #f9f9f9; padding: 40px 20px; border: 2px solid #eee; border-radius: 15px; cursor: pointer; transition: all 0.4s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;}
         .branch-card:hover { background-color: var(--dotin-blue); border-color: var(--dotin-blue); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 86, 179, 0.2); }
         
-        /* Animated Counter Styling */
         .branch-counter-wrap { margin-bottom: 15px; display: flex; align-items: baseline; justify-content: center; color: var(--combat-red); transition: 0.3s; }
         .branch-card:hover .branch-counter-wrap { color: #fff; }
         .branch-count { font-family: 'Anton', sans-serif; font-size: 3.5rem; line-height: 1; }
@@ -154,10 +323,7 @@
         .branch-card p.branch-loc { color: #666; margin-top: 5px; font-size: 0.85rem; transition: 0.3s; margin-bottom: 10px;}
         .branch-card:hover h3, .branch-card:hover p.branch-loc { color: #fff; }
 
-        .view-details-tag {
-            background-color: #eee; color: #555; font-size: 10px; padding: 5px 12px; border-radius: 20px; font-weight: 800;
-            display: inline-block; text-transform: uppercase; transition: 0.3s; margin-top: 10px;
-        }
+        .view-details-tag { background-color: #eee; color: #555; font-size: 10px; padding: 5px 12px; border-radius: 20px; font-weight: 800; display: inline-block; text-transform: uppercase; transition: 0.3s; margin-top: 10px; }
         .branch-card:hover .view-details-tag { background-color: #fff; color: var(--combat-red); }
 
         /* MODAL */
@@ -172,7 +338,7 @@
         .wa-btn { background-color: #25D366; color: white; padding: 15px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; border-radius: 5px; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); margin-top: 30px; width: 100%; justify-content: center; }
         .wa-btn:hover { background-color: #128C7E; transform: scale(1.05); }
 
-        /* --- 9. CONTACT US SECTION --- */
+        /* --- 10. CONTACT US SECTION --- */
         .contact-section { background: linear-gradient(135deg, #ffffff 0%, #ebf4fc 50%, #ffe6e6 100%); padding: 80px 5%; text-align: center; color: #333; }
         .contact-section h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: var(--dotin-blue); margin-bottom: 50px; text-transform: uppercase; }
         .contact-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
@@ -195,13 +361,10 @@
         footer { background-color: #050505; padding: 20px; text-align: center; color: #666; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; padding: 10px 5px; gap: 12px; }
-            .club-logo { height: 45px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; }
-            .nav-links a { margin: 0 8px; font-size: 11px; }
+            .brand-text { font-size: 1.2rem; }
             .hero-content h1 { font-size: 3rem; }
             .hero-content .top-title { font-size: 1rem; }
-            .section-header h2, .courses-section .section-header h2, .gallery-section .section-header h2, .updates-section .section-header h2, .branches-section h2, .contact-section h2 { font-size: 2.5rem; }
+            .section-header h2, .courses-section .section-header h2, .gallery-section .section-header h2, .updates-section .section-header h2, .trainers-section .section-header h2, .branches-section h2, .contact-section h2 { font-size: 2.5rem; }
             .memorial-name { font-size: 2.5rem; }
             .update-card { flex-direction: column; }
             .update-img { width: 100%; min-height: 250px; }
@@ -217,13 +380,23 @@
 <body>
 
     <nav class="navbar" data-aos="fade-down" data-aos-duration="1000">
-        <a href="#home">
-            <img src="./photos/Untitled design.png" alt="Combat Fight Club Logo" class="club-logo">
-        </a>
-        <div class="nav-links">
+        <div class="nav-brand">
+            <a href="#home">
+                <img src="./photos/Untitled design.png" alt="Combat Fight Club Logo" class="club-logo">
+            </a>
+            <span class="brand-text">COMBAT FIGHT CLUB</span>
+        </div>
+        
+        <div class="hamburger" id="hamburgerBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-links" id="navMenu">
+            <span class="close-menu" id="closeBtn"><i class="fas fa-times"></i></span>
             <a href="#home">HOME</a>
             <a href="#courses">COURSES</a>
             <a href="#gallery">GALLERY</a>
+            <a href="#trainers">TRAINERS</a>
             <a href="#updates">UPDATES</a>
             <a href="#branches">BRANCHES</a>
             <a href="#contact">CONTACT US</a>
@@ -319,7 +492,62 @@
             </div>
         </div>
         <div class="insta-btn-container" data-aos="zoom-in" data-aos-delay="500">
-            <a href="https://instagram.com/yourclubid" target="_blank" class="insta-btn"><i class="fab fa-instagram"></i> See More on Instagram</a>
+            <a href="https://www.instagram.com/combatfightclub_?igsh=MXYzcnZvZG4zYzM2aA==" target="_blank" class="insta-btn"><i class="fab fa-instagram"></i> See More on Instagram</a>
+        </div>
+    </section>
+
+    <!-- TRAINERS SECTION -->
+    <section class="trainers-section" id="trainers">
+        <div class="section-header">
+            <h2 data-aos="zoom-in">OUR EXPERT TRAINERS</h2>
+        </div>
+        <div class="trainers-grid">
+            
+            <!-- Trainer Card 1 -->
+            <div class="trainer-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="trainer-img-wrap">
+                    <img src="./photos/coach.jpg" alt="Head Coach" class="trainer-img">
+                </div>
+                <div class="trainer-details">
+                    <h3>SARATH S</h3>
+                    <p class="role">Head Coach</p>
+                    <span class="sub-role">Club in Charge : Kottarakkara-Anchal-Thalavoor</span>
+                    <a href="https://www.instagram.com/coach_sarath__?igsh=anh0YXo4dDk5cTIy" target="_blank" class="trainer-ig-btn">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Trainer Card 2 -->
+            <div class="trainer-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="trainer-img-wrap">
+                    <img src="./photos/anoj.jpg" alt="Senior Coach" class="trainer-img">
+                </div>
+                <div class="trainer-details">
+                    <h3>ANOJ PHILIP</h3>
+                    <p class="role">Senior Coach</p>
+                    <span class="sub-role">Club in Charge : Punalur-Chadayamangalam</span>
+                    <a href="https://www.instagram.com/thereal_anoj_14?igsh=MWM5NDRuamNqaDNj" target="_blank" class="trainer-ig-btn">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Trainer Card 3 -->
+            <div class="trainer-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="trainer-img-wrap">
+                    <img src="./photos/athul.jpg" alt="MMA Coach" class="trainer-img">
+                </div>
+                <div class="trainer-details">
+                    <h3>ATHUL MOHAN</h3>
+                    <p class="role">Senior Coach</p>
+                    <span class="sub-role">Club in Charge : Oyoor</span>
+                    <a href="https://www.instagram.com/_athul._.mohan_?igsh=dTB2bG15YzNwOTJx" target="_blank" class="trainer-ig-btn">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -430,26 +658,81 @@
         <h2 data-aos="zoom-in">GET IN TOUCH</h2>
         <div class="contact-grid">
             <a href="https://wa.me/918590342628" target="_blank" class="contact-card card-wa" data-aos="fade-up" data-aos-delay="100"><div class="icon-3d"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp</h3><p>Chat with our Team</p></a>
-            <a href="https://instagram.com/yourclubid" target="_blank" class="contact-card card-ig" data-aos="fade-up" data-aos-delay="200"><div class="icon-3d"><i class="fab fa-instagram"></i></div><h3>Instagram</h3><p><span class="ig-counter-text" data-target="10000">0</span></p><p>Followers</p></a>
-            <a href="https://facebook.com/yourclubid" target="_blank" class="contact-card card-fb" data-aos="fade-up" data-aos-delay="300"><div class="icon-3d"><i class="fab fa-facebook-f"></i></div><h3>Facebook</h3><p>Join our Community</p></a>
+            <a href="https://www.instagram.com/combatfightclub_?igsh=MXYzcnZvZG4zYzM2aA==" target="_blank" class="contact-card card-ig" data-aos="fade-up" data-aos-delay="200"><div class="icon-3d"><i class="fab fa-instagram"></i></div><h3>Instagram</h3><p><span class="ig-counter-text" data-target="10000">0</span></p><p>Followers</p></a>
+            <a href="https://www.facebook.com/share/1DwKwG1Pr9/" target="_blank" class="contact-card card-fb" data-aos="fade-up" data-aos-delay="300"><div class="icon-3d"><i class="fab fa-facebook-f"></i></div><h3>Facebook</h3><p>Join our Community</p></a>
             <a href="tel:+918590342628" class="contact-card card-call" data-aos="fade-up" data-aos-delay="400"><div class="icon-3d"><i class="fas fa-phone-alt"></i></div><h3>Call Us</h3><p>+91 8590342628</p></a>
         </div>
     </section>
 
-    <footer><p>© 2024 Combat Fight Club Kerala. All Rights Reserved.</p></footer>
+    <footer><p>©️ 2024 Combat Fight Club Kerala. All Rights Reserved.</p></footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50 });
 
+        /* --- HAMBURGER MENU JS --- */
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        const closeBtn = document.getElementById('closeBtn');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.style.right = '0';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navMenu.style.right = '-100%';
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.style.right = '-100%';
+            });
+        });
+
         const branchesData = {
-            'punalur': { name: 'Punalur', loc: 'Post Office Junction', mapQuery: 'Punalur Post Office Junction, Kerala', games: 'Boxing, KickBoxing, Wushu, MMA, Muay-Thai, Personal Training', timeText: 'Mon - Sat: 5:00 PM - 9:30 PM', daysOpen: [1,2,3,4,5,6], openTime: 17.0, closeTime: 21.5 },
-            'kottarakkara': { name: 'Kottarakkara', loc: 'NSS union complex-Market JN', mapQuery: 'NSS union complex Kottarakkara, Kerala', games: 'Boxing, Muay-Thai, Kickboxing, Wushu, MMA', timeText: 'Head Office (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 9.0, closeTime: 21.5 },
-            'anchal': { name: 'Anchal', loc: 'Yeroor Junction', mapQuery: 'Yeroor Junction Anchal, Kerala', games: 'Kickboxing, Wushu, MMA, Boxing, Muay Thai', timeText: 'Mon-Wed-Fri : 5:30 PM - 9:30 PM', daysOpen: [1,3,5], openTime: 17.0, closeTime: 21.5 },
-            'oyoor': { name: 'Oyoor', loc: 'Chunkathara-Oyoor (O2 Gym)', mapQuery: 'Oyoor Chunkathara, Kerala', games: 'Boxing, Wushu, Muay-Thai,  Kickboxing', timeText: 'Mon-Thur-Sat : 5:30 PM - 9:30 PM', daysOpen: [1,4,6], openTime: 17.0, closeTime: 21.5 },
-            'thalavoor': { name: 'Thalavoor', loc: 'Near-Thalavoor Devi Temple', mapQuery: 'Thalavoor Devi Temple, Kerala', games: 'MMA, Boxing', timeText: 'Weekend Batches (Sat & Sun)', daysOpen: [0,6], openTime: 17.0, closeTime: 19.5 },
-            'pattazhy': { name: 'Pattazhy', loc: 'Pattazhy Junction', mapQuery: 'Pattazhy, Kerala', games: 'Kickboxing, Wushu', timeText: 'Evening Batches (Mon-Sat-Sun)', daysOpen: [0,1,6], openTime: 18.0, closeTime: 20.5 },
-            'chadayamangalam': { name: 'Chadayamangalam', loc: 'Universal Gym Route', mapQuery: 'Universal Gym Chadayamangalam, Kerala', games: 'Muay Thai, MMA', timeText: 'Evening Batches (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 19.0, closeTime: 20.5 }
+            'punalur': { 
+                name: 'Punalur', loc: 'Post Office Junction', 
+                mapQuery: 'Punalur post office junction', 
+                mapUrl: 'https://maps.app.goo.gl/ecZf9aPBvVfXBgpU9?g_st=ac',
+                games: 'Boxing, KickBoxing, Wushu, MMA, Muay-Thai, Personal Training', timeText: 'Mon - Sat: 5:00 PM - 9:30 PM', daysOpen: [1,2,3,4,5,6], openTime: 17.0, closeTime: 21.5 
+            },
+            'kottarakkara': { 
+                name: 'Kottarakkara', loc: 'NSS union complex-Market JN', 
+                mapQuery: 'NSS union complex Kottarakkara, Kerala', 
+                mapUrl: 'https://maps.app.goo.gl/AKir27gzYbENBPf18',
+                games: 'Boxing, Muay-Thai, Kickboxing, Wushu, MMA', timeText: 'Head Office (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 9.0, closeTime: 21.5 
+            },
+            'anchal': { 
+                name: 'Anchal', loc: 'Yeroor Junction', 
+                mapQuery: 'Yeroor Junction Anchal, Kerala', 
+                mapUrl: 'https://maps.app.goo.gl/G96fSexp9tY668SX7',
+                games: 'Kickboxing, Wushu, MMA, Boxing, Muay Thai', timeText: 'Mon-Wed-Fri : 5:30 PM - 9:30 PM', daysOpen: [1,3,5], openTime: 17.0, closeTime: 21.5 
+            },
+            'oyoor': { 
+                name: 'Oyoor', loc: 'Chunkathara-Oyoor (O2 Gym)', 
+                mapQuery: 'Oyoor Chunkathara, Kerala', 
+                mapUrl: 'https://maps.app.goo.gl/9tjZzdiTCiJ7zAPm8?g_st=ac',
+                games: 'Boxing, Wushu, Muay-Thai,  Kickboxing', timeText: 'Mon-Thur-Sat : 5:30 PM - 9:30 PM', daysOpen: [1,4,6], openTime: 17.0, closeTime: 21.5 
+            },
+            'thalavoor': { 
+                name: 'Thalavoor', loc: 'Near-Thalavoor Devi Temple', 
+                mapQuery: 'Thalavoor Devi Temple, Kerala', 
+                mapUrl: 'https://maps.app.goo.gl/fXUs16PyCxMtgHFq5',
+                games: 'MMA, Boxing', timeText: 'Weekend Batches (Sat & Sun)', daysOpen: [0,6], openTime: 17.0, closeTime: 19.5 
+            },
+            'pattazhy': { 
+                name: 'Pattazhy', loc: 'Pattazhy Junction', 
+                mapQuery: 'Pattazhy, Kerala', 
+                mapUrl: 'https://maps.app.goo.gl/9tjZzdiTCiJ7zAPm8?g_st=ac',
+                games: 'Kickboxing, Wushu', timeText: 'Evening Batches (Mon-Sat-Sun)', daysOpen: [0,1,6], openTime: 18.0, closeTime: 20.5 
+            },
+            'chadayamangalam': { 
+                name: 'Chadayamangalam', loc: 'Universal Gym Route', 
+                mapQuery: 'Universal Gym Chadayamangalam, Kerala', 
+                mapUrl: 'https://maps.app.goo.gl/evLADb7PfQFgY9UF8?g_st=ac',
+                games: 'Muay Thai, MMA', timeText: 'Evening Batches (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 19.0, closeTime: 20.5 
+            }
         };
 
         function openBranch(branchId) {
@@ -467,7 +750,7 @@
             }
 
             const genericMapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(data.mapQuery)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
-            const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.mapQuery)}`;
+            const mapLinkUrl = data.mapUrl;
 
             body.innerHTML = `
                 <iframe src="${genericMapEmbed}" class="modal-img" frameborder="0"></iframe>
@@ -487,7 +770,7 @@
         function closeModal() { document.getElementById('branchModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
         window.onclick = function(e) { if (e.target == document.getElementById('branchModal')) closeModal(); }
 
-        /* --- Instagram Counter (Original) --- */
+        /* --- Instagram Counter --- */
         const counterIG = document.querySelector('.ig-counter-text');
         function startCounterLoopIG() {
             counterIG.innerText = '0';
@@ -503,22 +786,19 @@
         const observerIG = new IntersectionObserver((entries) => { if(entries[0].isIntersecting) { startCounterLoopIG(); observerIG.unobserve(counterIG); } }, { threshold: 0.5 });
         if(counterIG) observerIG.observe(counterIG);
 
-        /* --- Branch Section Counters (New with Loop & Delay) --- */
+        /* --- Branch Counters --- */
         const branchCounters = document.querySelectorAll('.js-branch-counter');
         
         function animateBranchCounter(counterElement) {
             counterElement.innerText = '0';
             const target = +counterElement.getAttribute('data-target');
             
-            // Adjust speed based on target number (higher number = faster increments)
             let speed = 50; 
             if (target > 50) speed = 30;
             if (target > 90) speed = 15;
 
             const updateCount = () => {
                 const count = +counterElement.innerText;
-                
-                // Calculate increment to finish in roughly the same time for all
                 const increment = Math.ceil(target / 25); 
 
                 if (count < target) {
@@ -527,26 +807,23 @@
                     counterElement.innerText = nextCount;
                     setTimeout(updateCount, speed);
                 } else {
-                    // Reached target, wait 2 seconds and restart
                     setTimeout(() => animateBranchCounter(counterElement), 2000);
                 }
             };
             updateCount();
         }
 
-        // Setup observer to start animation when visible
         const observerBranch = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
                     const counter = entry.target;
-                    // Prevent multiple animation triggers
                     if (!counter.classList.contains('is-animating')) {
                         counter.classList.add('is-animating');
                         animateBranchCounter(counter);
                     }
                 }
             });
-        }, { threshold: 0.7 }); // High threshold so it starts when fully visible
+        }, { threshold: 0.7 });
 
         branchCounters.forEach(counter => observerBranch.observe(counter));
 
