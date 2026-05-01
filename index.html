@@ -173,14 +173,11 @@
         /* --- 6. TRAINERS SECTION --- */
         .trainers-section { padding: 100px 5%; background: linear-gradient(135deg, #000000 0%, #001f3f 100%); text-align: center; }
         .trainers-section .section-header h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: #8ab4f8; margin-bottom: 10px; letter-spacing: 2px; text-shadow: 0px 5px 15px rgba(0, 86, 179, 0.5); }
-        .trainers-grid { display: flex; justify-content: center; gap: 50px; margin-top: 120px; flex-wrap: wrap; }
+        /* Notice row-gap is 120px to prevent overlapping on stacking */
+        .trainers-grid { display: flex; justify-content: center; gap: 120px 50px; margin-top: 150px; flex-wrap: wrap; }
         
         /* Required for the border animation to work smoothly */
-        @property --angle {
-            syntax: '<angle>';
-            initial-value: 0deg;
-            inherits: false;
-        }
+        @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
 
         .trainer-card { 
             width: 320px; 
@@ -196,8 +193,8 @@
         .trainer-card::before {
             content: '';
             position: absolute;
-            inset: -3px; /* Border thickness */
-            border-radius: 22px; /* Slightly larger than card */
+            inset: -3px; 
+            border-radius: 22px; 
             background: conic-gradient(from var(--angle), transparent 50%, var(--dotin-blue) 80%, var(--combat-red) 100%);
             z-index: -2;
             animation: spin-border 3s linear infinite;
@@ -237,7 +234,6 @@
             filter: drop-shadow(0 -10px 20px rgba(0,0,0,0.6));
             transition: transform 0.4s ease;
             pointer-events: none;
-            /* Smooth Blend Effect at the bottom of the image */
             -webkit-mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px);
             mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px);
         }
@@ -303,12 +299,26 @@
         .memorial-quote { font-size: 1.1rem; font-style: italic; line-height: 1.8; color: #ddd; font-weight: 400; }
         .memorial-quote strong { color: var(--combat-red); font-weight: 700; }
 
-        /* --- 9. BRANCHES SECTION --- */
+        /* --- 9. BRANCHES & REVIEWS SECTION --- */
         .branches-section { padding: 80px 5%; background-color: var(--text-white); text-align: center; color: #000; }
         .branches-section h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: var(--combat-red); margin-bottom: 5px; }
-        .branches-section .hint { color: #666; font-size: 0.95rem; font-weight: 600; margin-bottom: 50px; }
-        .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .branches-section .hint { color: #666; font-size: 0.95rem; font-weight: 600; margin-bottom: 40px; }
         
+        @keyframes boxGlow {
+            from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3), inset 0 0 10px rgba(255, 215, 0, 0.1); }
+            to { box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), inset 0 0 20px rgba(255, 215, 0, 0.2); transform: scale(1.02); }
+        }
+        .review-box:hover { transform: translateY(-10px) scale(1.04); animation: none; box-shadow: 0 15px 40px rgba(255, 215, 0, 0.8); }
+        
+        .stars-wrap { margin-bottom: 15px; }
+        .stars-wrap .fa-star { color: #e4e4e4; font-size: 1.8rem; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin: 0 3px; transform: scale(0.8); }
+        .stars-wrap .fa-star.active { color: #FFD700; text-shadow: 0 0 15px #FFD700; transform: scale(1.2); }
+        
+        .review-count-text { font-family: 'Anton', sans-serif; font-size: 2.8rem; color: #333; line-height: 1; }
+        .review-count-label { font-size: 0.9rem; font-weight: 800; text-transform: uppercase; color: #666; margin-bottom: 15px; letter-spacing: 1px; }
+        .review-desc { font-style: italic; color: #555; font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
+
+        .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .branch-card { background: #f9f9f9; padding: 40px 20px; border: 2px solid #eee; border-radius: 15px; cursor: pointer; transition: all 0.4s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;}
         .branch-card:hover { background-color: var(--dotin-blue); border-color: var(--dotin-blue); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 86, 179, 0.2); }
         
@@ -366,6 +376,9 @@
             .hero-content .top-title { font-size: 1rem; }
             .section-header h2, .courses-section .section-header h2, .gallery-section .section-header h2, .updates-section .section-header h2, .trainers-section .section-header h2, .branches-section h2, .contact-section h2 { font-size: 2.5rem; }
             .memorial-name { font-size: 2.5rem; }
+            /* Trainer Grid Mobile Spacing Increased to avoid overlapping */
+            .trainers-grid { gap: 120px 20px; margin-top: 120px; }
+            
             .update-card { flex-direction: column; }
             .update-img { width: 100%; min-height: 250px; }
             .update-content { padding: 30px 20px; text-align: center; align-items: center; }
@@ -577,10 +590,11 @@
         </div>
     </section>
 
+    <!-- OUR BRANCHES & REVIEWS SECTION -->
     <section class="branches-section" id="branches">
         <h2 data-aos="fade-up">OUR BRANCHES</h2>
         <p class="hint" data-aos="fade-up">Click on a branch card to view live status, location map & details.</p>
-        
+
         <div class="branches-grid">
             <div class="branch-card" data-aos="zoom-in" onclick="openBranch('punalur')">
                 <div class="branch-counter-wrap">
@@ -724,7 +738,7 @@
             'pattazhy': { 
                 name: 'Pattazhy', loc: 'Pattazhy Junction', 
                 mapQuery: 'Pattazhy, Kerala', 
-                mapUrl: 'https://maps.app.goo.gl/8nCNwxxhuHhC9ZnW7',
+                mapUrl: 'https://maps.app.goo.gl/9tjZzdiTCiJ7zAPm8?g_st=ac',
                 games: 'Kickboxing, Wushu', timeText: 'Evening Batches (Mon-Sat-Sun)', daysOpen: [0,1,6], openTime: 18.0, closeTime: 20.5 
             },
             'chadayamangalam': { 
@@ -786,7 +800,7 @@
         const observerIG = new IntersectionObserver((entries) => { if(entries[0].isIntersecting) { startCounterLoopIG(); observerIG.unobserve(counterIG); } }, { threshold: 0.5 });
         if(counterIG) observerIG.observe(counterIG);
 
-        /* --- Branch Counters --- */
+        /* --- Branch Counters & Review Counters --- */
         const branchCounters = document.querySelectorAll('.js-branch-counter');
         
         function animateBranchCounter(counterElement) {
@@ -807,7 +821,7 @@
                     counterElement.innerText = nextCount;
                     setTimeout(updateCount, speed);
                 } else {
-                    setTimeout(() => animateBranchCounter(counterElement), 2000);
+                    setTimeout(() => animateBranchCounter(counterElement), 3000);
                 }
             };
             updateCount();
@@ -823,9 +837,39 @@
                     }
                 }
             });
-        }, { threshold: 0.7 });
+        }, { threshold: 0.5 });
 
         branchCounters.forEach(counter => observerBranch.observe(counter));
+
+        /* --- Stars Animation for Google Reviews --- */
+        const starContainers = document.querySelectorAll('.js-stars-anim');
+        
+        const observerStars = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const container = entry.target;
+                    if (!container.classList.contains('is-animating')) {
+                        container.classList.add('is-animating');
+                        const stars = container.querySelectorAll('.js-star');
+                        
+                        // Activate stars one by one
+                        stars.forEach((star, index) => {
+                            setTimeout(() => {
+                                star.classList.add('active');
+                            }, (index + 1) * 300); // 300ms delay between each star
+                        });
+                        
+                        // Reset and replay animation loop after a few seconds
+                        setTimeout(() => {
+                            stars.forEach(star => star.classList.remove('active'));
+                            container.classList.remove('is-animating');
+                        }, 4000); 
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        starContainers.forEach(container => observerStars.observe(container));
 
     </script>
 </body>
