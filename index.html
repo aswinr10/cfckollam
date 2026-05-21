@@ -137,6 +137,174 @@
         .ticker-item i { color: var(--combat-red); margin-right: 10px; font-size: 14px; }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
+        /* --- CHAMPIONS POSTER SECTION (SWIPEABLE CAROUSEL) --- */
+        .champions-section {
+            padding: 80px 5%;
+            background-color: #080808;
+            text-align: center;
+            border-bottom: 3px solid var(--combat-red);
+            position: relative;
+        }
+        .champions-section .section-header h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3.5rem;
+            color: var(--text-white);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 49, 49, 0.4);
+        }
+        .champions-section .section-header p {
+            color: #aaaaaa;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .champions-carousel-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .champions-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 40px;
+            padding: 30px 10px;
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
+            width: 100%;
+        }
+        .champions-slider::-webkit-scrollbar {
+            display: none; /* Hides scrollbar for clean UI */
+        }
+
+        .champion-poster {
+            flex: 0 0 auto;
+            width: calc(33.333% - 27px); /* Desktop: 3 items visible */
+            max-width: 340px; 
+            aspect-ratio: 4 / 5; 
+            position: relative;
+            border-radius: 15px;
+            background: #111;
+            padding: 5px; 
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            scroll-snap-align: center;
+        }
+
+        /* Style for the updating placeholder boxes */
+        .placeholder-poster {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #151515;
+            border: 2px dashed #333;
+        }
+        .updating-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            color: var(--combat-red);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 49, 49, 0.6);
+            z-index: 2;
+        }
+
+        .champion-poster::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(45deg, var(--combat-red), var(--dotin-blue), var(--combat-red), var(--dotin-blue));
+            background-size: 400%;
+            z-index: -1;
+            border-radius: 18px;
+            animation: neonGlow 4s linear infinite;
+        }
+        .champion-poster::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(45deg, var(--combat-red), var(--dotin-blue), var(--combat-red), var(--dotin-blue));
+            background-size: 400%;
+            z-index: -2;
+            border-radius: 18px;
+            filter: blur(15px);
+            opacity: 0.6;
+            animation: neonGlow 4s linear infinite;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+        @keyframes neonGlow {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+            100% { background-position: 0% 0%; }
+        }
+        .champion-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            z-index: 2;
+            position: relative;
+        }
+        .champion-poster:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        .champion-poster:hover::after {
+            opacity: 1;
+            filter: blur(25px); 
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-btn {
+            background: rgba(20, 20, 20, 0.8);
+            color: var(--combat-red);
+            border: 2px solid var(--combat-red);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .carousel-btn:hover {
+            background: var(--combat-red);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 49, 49, 0.8);
+        }
+        .left-btn { left: -25px; }
+        .right-btn { right: -25px; }
+
+        /* Mobile & Tablet view adjustments */
+        @media (max-width: 992px) {
+            .champion-poster {
+                width: calc(50% - 20px); /* Tablet: 2 items */
+            }
+        }
+        @media (max-width: 768px) {
+            .updating-text { font-size: 2rem; }
+            .champion-poster {
+                width: 85%; /* Mobile: 1 item center, next item slightly visible */
+            }
+            .left-btn { left: 0px; width: 40px; height: 40px; font-size: 1.2rem; }
+            .right-btn { right: 0px; width: 40px; height: 40px; font-size: 1.2rem; }
+        }
+
         /* --- 4. COURSES SECTION --- */
         .courses-section { padding: 80px 5%; background-color: #f4f7f6; text-align: center; color: #333; overflow: hidden; }
         .courses-section .section-header h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: var(--dotin-blue); letter-spacing: 2px; margin-bottom: 10px; }
@@ -153,6 +321,70 @@
         .course-content { padding: 15px; position: absolute; bottom: 5%; left: 0; width: 100%; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; }
         .course-content h3 { font-family: 'Anton', sans-serif; font-size: 1.8rem; color: var(--combat-red); letter-spacing: 1px; text-transform: uppercase; margin: 0; transition: transform 0.4s ease, color 0.4s ease; }
         .course-card:hover .course-content h3 { transform: translateZ(40px); color: var(--dotin-blue); }
+
+        /* --- AFFILIATIONS IN COURSES SECTION --- */
+        .courses-affiliations-wrapper {
+            margin-top: 80px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+        .affiliated-text {
+            text-align: left;
+            font-size: 1rem;
+            color: #666;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--combat-red);
+            padding-left: 10px;
+        }
+        .affiliation-logos {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .affiliation-logos img {
+            height: 60px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            animation: logoFloatLight 3s alternate infinite ease-in-out;
+            cursor: pointer;
+        }
+        
+        /* Specific size override for Youth Affairs Logo */
+        .affiliation-logos img.large-logo {
+            height: 90px;
+        }
+
+        .affiliation-logos img:nth-child(1) { animation-delay: 0s; }
+        .affiliation-logos img:nth-child(2) { animation-delay: 0.6s; }
+        .affiliation-logos img:nth-child(3) { animation-delay: 1.2s; }
+        .affiliation-logos img:nth-child(4) { animation-delay: 1.8s; }
+        .affiliation-logos img:nth-child(5) { animation-delay: 2.4s; }
+        .affiliation-logos img:nth-child(6) { animation-delay: 3.0s; }
+        .affiliation-logos img:nth-child(7) { animation-delay: 3.6s; }
+
+        @keyframes logoFloatLight {
+            0% {
+                transform: translateY(0px) scale(1);
+                filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            }
+            100% {
+                transform: translateY(-8px) scale(1.05);
+                filter: drop-shadow(0 15px 10px rgba(0, 86, 179, 0.15)) drop-shadow(0 0 10px rgba(255, 49, 49, 0.15));
+            }
+        }
+
+        .affiliation-logos img:hover {
+            transform: scale(1.15) !important;
+            filter: drop-shadow(0 10px 15px rgba(0, 86, 179, 0.3)) !important;
+            animation-play-state: paused;
+        }
 
         /* --- 5. GALLERY SECTION --- */
         .gallery-section { padding: 80px 5%; background-color: #050505; text-align: center; }
@@ -173,10 +405,8 @@
         /* --- 6. TRAINERS SECTION --- */
         .trainers-section { padding: 100px 5%; background: linear-gradient(135deg, #000000 0%, #001f3f 100%); text-align: center; }
         .trainers-section .section-header h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: #8ab4f8; margin-bottom: 10px; letter-spacing: 2px; text-shadow: 0px 5px 15px rgba(0, 86, 179, 0.5); }
-        /* Notice row-gap is 120px to prevent overlapping on stacking */
         .trainers-grid { display: flex; justify-content: center; gap: 120px 50px; margin-top: 150px; flex-wrap: wrap; }
         
-        /* Required for the border animation to work smoothly */
         @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
 
         .trainer-card { 
@@ -189,7 +419,6 @@
             z-index: 1;
         }
 
-        /* Animated Glowing Border */
         .trainer-card::before {
             content: '';
             position: absolute;
@@ -200,7 +429,6 @@
             animation: spin-border 3s linear infinite;
         }
 
-        /* Solid background to cover inner portion of the border */
         .trainer-card::after {
             content: '';
             position: absolute;
@@ -374,9 +602,8 @@
             .brand-text { font-size: 1.2rem; }
             .hero-content h1 { font-size: 3rem; }
             .hero-content .top-title { font-size: 1rem; }
-            .section-header h2, .courses-section .section-header h2, .gallery-section .section-header h2, .updates-section .section-header h2, .trainers-section .section-header h2, .branches-section h2, .contact-section h2 { font-size: 2.5rem; }
+            .section-header h2, .champions-section .section-header h2, .courses-section .section-header h2, .gallery-section .section-header h2, .updates-section .section-header h2, .trainers-section .section-header h2, .branches-section h2, .contact-section h2 { font-size: 2.5rem; }
             .memorial-name { font-size: 2.5rem; }
-            /* Trainer Grid Mobile Spacing Increased to avoid overlapping */
             .trainers-grid { gap: 120px 20px; margin-top: 120px; }
             
             .update-card { flex-direction: column; }
@@ -387,6 +614,14 @@
             .branch-count { font-size: 3rem; }
             .modal-info-grid { grid-template-columns: 1fr; }
             .modal-content { padding: 30px 20px; }
+            
+            .champions-grid { gap: 30px; }
+            .updating-text { font-size: 2rem; }
+            
+            .courses-affiliations-wrapper { margin-top: 50px; }
+            .affiliation-logos img { height: 45px; gap: 20px; }
+            .affiliation-logos img.large-logo { height: 65px; } /* Adjusted size for mobile */
+            .affiliation-logos { justify-content: center; } 
         }
     </style>
 </head>
@@ -407,6 +642,7 @@
         <div class="nav-links" id="navMenu">
             <span class="close-menu" id="closeBtn"><i class="fas fa-times"></i></span>
             <a href="#home">HOME</a>
+            <a href="#champions">CHAMPIONS</a>
             <a href="#courses">COURSES</a>
             <a href="#gallery">GALLERY</a>
             <a href="#trainers">TRAINERS</a>
@@ -426,6 +662,7 @@
             <p class="subtitle" data-aos="fade-up" data-aos-delay="900">Experience world-class training in Combat Sports and Martial Arts. We transform beginners into professional athletes.</p>
             <a href="https://wa.me/918590342628?text=Hi,%20I%20would%20like%20to%20join%20Combat%20Fight%20Club!" target="_blank" class="join-btn" data-aos="zoom-in" data-aos-delay="1200">JOIN WITH US</a>
         </div>
+        
         <div class="ticker-wrap" data-aos="fade-up" data-aos-delay="1500">
             <div class="ticker-move">
                 <div class="ticker-item"><i class="fas fa-star"></i> 100+ National Players</div>
@@ -442,6 +679,49 @@
         </div>
     </section>
 
+    <!-- CHAMPIONS POSTER SECTION (SWIPEABLE) -->
+    <section class="champions-section" id="champions">
+        <div class="section-header">
+            <h2 data-aos="zoom-in">OUR RECENT CHAMPIONS</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Celebrating our victorious warriors</p>
+        </div>
+        
+        <div class="champions-carousel-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <!-- Left Swipe Button -->
+            <button class="carousel-btn left-btn" onclick="slideChampions(-1)">&#10094;</button>
+            
+            <div class="champions-slider" id="championsSlider">
+                
+                <!-- Poster 1 -->
+                <div class="champion-poster">
+                    <img src="./photos/KERALA STATE KICKBOXING CHAMPIONSHIP 2026.png" alt="Recent Champion 1">
+                </div>
+                
+                <!-- Poster 2 -->
+                <div class="champion-poster">
+                    <img src="./photos/kak tlvr.png" alt="Recent Champion 2">
+                </div>
+
+                <!-- Updating Box 1 -->
+                <div class="champion-poster placeholder-poster">
+                    <div class="updating-text">UPDATING...</div>
+                </div>
+                
+                <!-- Updating Box 2 -->
+                <div class="champion-poster placeholder-poster">
+                    <div class="updating-text">UPDATING...</div>
+                </div>
+
+                <!-- Iniyum boxes venamenkil melel ulla div copy cheythu ivide iduka -->
+
+            </div>
+            
+            <!-- Right Swipe Button -->
+            <button class="carousel-btn right-btn" onclick="slideChampions(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
     <section class="courses-section" id="courses">
         <div class="section-header">
             <h2 data-aos="zoom-in">CHOOSE YOUR DISCIPLINE</h2>
@@ -477,6 +757,26 @@
                     <div class="course-img-box"><img src="./photos/mma.jpg" alt="MMA"></div>
                     <div class="course-content"><h3>MMA</h3></div>
                 </div>
+            </div>
+        </div>
+
+        <!-- AFFILIATIONS IN COURSES SECTION -->
+        <div class="courses-affiliations-wrapper" data-aos="fade-up" data-aos-delay="600">
+            <p class="affiliated-text">Affiliated by</p>
+            <div class="affiliation-logos">
+                <img src="./photos/KAK_LOGO-removebg-preview (1).png" alt="KAK" title="KAK">
+                <img src="./photos/Sports-Authority-of-India-SAI-Logo-removebg-preview.png" alt="SAI" title="Sports Authority of India">
+                
+                <!-- Added "large-logo" class to increase size for this specific one -->
+                <img src="./photos/Ministry-of-Youth-Affairs-and-Sports-688x387-removebg-preview.png" alt="Ministry of Youth Affairs" title="Ministry of Youth Affairs" class="large-logo">
+                
+                <img src="./photos/khelo-india-logo-png_seeklogo-520946-removebg-preview.png" alt="Khelo India" title="Khelo India">
+                <img src="./photos/KUDO_INT_LOGO-removebg-preview.png" alt="Kudo International Federation" title="Kudo International Federation">
+                
+                <!-- New two logos added here -->
+                <img src="./photos/WBC_New_Logo_2025-removebg-preview.png" alt="Affiliation 6" title="Affiliation 6">
+                <img src="./photos/OIP-removebg-preview.png" alt="Affiliation 7" title="Affiliation 7">
+                <img src="./photos/733-7335608_fit-india-logo-png-fit-india-logos-transparent-removebg-preview.png" alt="Affiliation 7" title="Affiliation 7">
             </div>
         </div>
     </section>
@@ -870,6 +1170,17 @@
         }, { threshold: 0.5 });
 
         starContainers.forEach(container => observerStars.observe(container));
+
+        /* --- CHAMPIONS SWIPE LOGIC --- */
+        function slideChampions(direction) {
+            const slider = document.getElementById('championsSlider');
+            // Check if mobile or desktop to determine scroll distance
+            const itemWidth = slider.querySelector('.champion-poster').offsetWidth;
+            const gap = 40; // Same as CSS gap
+            const scrollAmount = itemWidth + gap;
+            
+            slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
 
     </script>
 </body>
