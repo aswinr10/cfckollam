@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combat Fight Club | Official Website</title>
     
+    <title>Combat Fight Club | Best Martial Arts, Boxing & MMA in Kollam</title>
+    <meta name="description" content="Join Combat Fight Club in Kollam for expert training in Boxing, Kickboxing, Muay Thai, Wushu, and MMA. Branches in Kottarakkara, Anchal, Punalur, Oyoor, Thalavoor, Pattazhy, Chadayamangalam, and Kadakkal.">
+    <meta name="keywords" content="Martial arts in Kollam, Boxing club near me, MMA training, Kickboxing Kerala, Best boxing academy in Kottarakkara, Combat Fight Club">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsClub",
+      "name": "Combat Fight Club Kollam",
+      "image": "./photos/Untitled design.png",
+      "description": "The best martial arts and boxing academy in Kollam offering professional training in MMA, Kickboxing, Wushu, Boxing, and Muay Thai.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kollam",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        "Kottarakkara", "Anchal", "Punalur", "Oyoor", 
+        "Thalavoor", "Pattazhy", "Chadayamangalam", "Kadakkal"
+      ],
+      "telephone": "+918590342628"
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -125,7 +149,10 @@
         #bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: -1; filter: brightness(0.4); }
         .hero-content { text-align: center; z-index: 1; padding: 0 20px; margin-bottom: 50px; width: 100%; }
         .hero-content .top-title { color: var(--text-white); font-size: 1.2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
+        
+        /* SEO: Changed H1 to include Location (Kollam) */
         .hero-content h1 { font-family: 'Anton', sans-serif; font-size: 6rem; color: var(--combat-red); text-transform: uppercase; line-height: 1; margin-bottom: 15px; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        
         .hero-content .subtitle { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; font-weight: 400; }
         .join-btn { background-color: var(--combat-red); color: white; padding: 15px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; border-radius: 5px; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(255, 49, 49, 0.4); }
         .join-btn:hover { background-color: #d62828; transform: scale(1.05); }
@@ -137,7 +164,7 @@
         .ticker-item i { color: var(--combat-red); margin-right: 10px; font-size: 14px; }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CHAMPIONS POSTER SECTION (SWIPEABLE CAROUSEL) --- */
+        /* --- CHAMPIONS POSTER SECTION --- */
         .champions-section {
             padding: 80px 5%;
             background-color: #080808;
@@ -182,12 +209,12 @@
             width: 100%;
         }
         .champions-slider::-webkit-scrollbar {
-            display: none; /* Hides scrollbar for clean UI */
+            display: none; 
         }
 
         .champion-poster {
             flex: 0 0 auto;
-            width: calc(33.333% - 27px); /* Desktop: 3 items visible */
+            width: calc(33.333% - 27px); 
             max-width: 340px; 
             aspect-ratio: 4 / 5; 
             position: relative;
@@ -200,7 +227,6 @@
             scroll-snap-align: center;
         }
 
-        /* Style for the updating placeholder boxes */
         .placeholder-poster {
             display: flex;
             align-items: center;
@@ -262,7 +288,6 @@
             filter: blur(25px); 
         }
 
-        /* Carousel Navigation Buttons */
         .carousel-btn {
             background: rgba(20, 20, 20, 0.8);
             color: var(--combat-red);
@@ -290,17 +315,12 @@
         .left-btn { left: -25px; }
         .right-btn { right: -25px; }
 
-        /* Mobile & Tablet view adjustments */
         @media (max-width: 992px) {
-            .champion-poster {
-                width: calc(50% - 20px); /* Tablet: 2 items */
-            }
+            .champion-poster { width: calc(50% - 20px); }
         }
         @media (max-width: 768px) {
             .updating-text { font-size: 2rem; }
-            .champion-poster {
-                width: 85%; /* Mobile: 1 item center, next item slightly visible */
-            }
+            .champion-poster { width: 85%; }
             .left-btn { left: 0px; width: 40px; height: 40px; font-size: 1.2rem; }
             .right-btn { right: 0px; width: 40px; height: 40px; font-size: 1.2rem; }
         }
@@ -308,7 +328,10 @@
         /* --- 4. COURSES SECTION --- */
         .courses-section { padding: 80px 5%; background-color: #f4f7f6; text-align: center; color: #333; overflow: hidden; }
         .courses-section .section-header h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: var(--dotin-blue); letter-spacing: 2px; margin-bottom: 10px; }
-        .courses-section .section-header .quote { font-size: 1.2rem; color: var(--combat-red); font-style: italic; font-weight: 600; max-width: 800px; margin: 0 auto 50px; }
+        .courses-section .section-header .quote { font-size: 1.2rem; color: var(--combat-red); font-style: italic; font-weight: 600; max-width: 800px; margin: 0 auto 20px; }
+        
+        .membership-note { font-size: 0.95rem; color: #666; font-weight: 700; margin-bottom: 50px; }
+
         .courses-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
         .course-card { width: 240px; height: 320px; background: #ffffff; border-radius: 15px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; perspective: 1000px; transition: transform 0.5s ease, box-shadow 0.5s ease; }
         .course-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
@@ -322,69 +345,19 @@
         .course-content h3 { font-family: 'Anton', sans-serif; font-size: 1.8rem; color: var(--combat-red); letter-spacing: 1px; text-transform: uppercase; margin: 0; transition: transform 0.4s ease, color 0.4s ease; }
         .course-card:hover .course-content h3 { transform: translateZ(40px); color: var(--dotin-blue); }
 
-        /* --- AFFILIATIONS IN COURSES SECTION --- */
-        .courses-affiliations-wrapper {
-            margin-top: 80px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 20px;
-        }
-        .affiliated-text {
-            text-align: left;
-            font-size: 1rem;
-            color: #666;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            border-left: 3px solid var(--combat-red);
-            padding-left: 10px;
-        }
-        .affiliation-logos {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .affiliation-logos img {
-            height: 60px;
-            object-fit: contain;
-            transition: all 0.3s ease;
-            animation: logoFloatLight 3s alternate infinite ease-in-out;
-            cursor: pointer;
-        }
-        
-        /* Specific size override for Youth Affairs Logo */
-        .affiliation-logos img.large-logo {
-            height: 90px;
-        }
-
-        .affiliation-logos img:nth-child(1) { animation-delay: 0s; }
-        .affiliation-logos img:nth-child(2) { animation-delay: 0.6s; }
-        .affiliation-logos img:nth-child(3) { animation-delay: 1.2s; }
-        .affiliation-logos img:nth-child(4) { animation-delay: 1.8s; }
-        .affiliation-logos img:nth-child(5) { animation-delay: 2.4s; }
-        .affiliation-logos img:nth-child(6) { animation-delay: 3.0s; }
-        .affiliation-logos img:nth-child(7) { animation-delay: 3.6s; }
+        /* --- AFFILIATIONS --- */
+        .courses-affiliations-wrapper { margin-top: 80px; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+        .affiliated-text { text-align: left; font-size: 1rem; color: #666; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; border-left: 3px solid var(--combat-red); padding-left: 10px; }
+        .affiliation-logos { display: flex; justify-content: flex-start; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .affiliation-logos img { height: 60px; object-fit: contain; transition: all 0.3s ease; animation: logoFloatLight 3s alternate infinite ease-in-out; cursor: pointer; }
+        .affiliation-logos img.large-logo { height: 90px; }
 
         @keyframes logoFloatLight {
-            0% {
-                transform: translateY(0px) scale(1);
-                filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-            }
-            100% {
-                transform: translateY(-8px) scale(1.05);
-                filter: drop-shadow(0 15px 10px rgba(0, 86, 179, 0.15)) drop-shadow(0 0 10px rgba(255, 49, 49, 0.15));
-            }
+            0% { transform: translateY(0px) scale(1); filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+            100% { transform: translateY(-8px) scale(1.05); filter: drop-shadow(0 15px 10px rgba(0, 86, 179, 0.15)) drop-shadow(0 0 10px rgba(255, 49, 49, 0.15)); }
         }
 
-        .affiliation-logos img:hover {
-            transform: scale(1.15) !important;
-            filter: drop-shadow(0 10px 15px rgba(0, 86, 179, 0.3)) !important;
-            animation-play-state: paused;
-        }
+        .affiliation-logos img:hover { transform: scale(1.15) !important; filter: drop-shadow(0 10px 15px rgba(0, 86, 179, 0.3)) !important; animation-play-state: paused; }
 
         /* --- 5. GALLERY SECTION --- */
         .gallery-section { padding: 80px 5%; background-color: #050505; text-align: center; }
@@ -409,63 +382,14 @@
         
         @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
 
-        .trainer-card { 
-            width: 320px; 
-            border-radius: 20px; 
-            position: relative; 
-            padding: 0 20px 40px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8); 
-            transition: all 0.4s ease;
-            z-index: 1;
-        }
-
-        .trainer-card::before {
-            content: '';
-            position: absolute;
-            inset: -3px; 
-            border-radius: 22px; 
-            background: conic-gradient(from var(--angle), transparent 50%, var(--dotin-blue) 80%, var(--combat-red) 100%);
-            z-index: -2;
-            animation: spin-border 3s linear infinite;
-        }
-
-        .trainer-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(145deg, #111, #1a1a1a);
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        @keyframes spin-border {
-            0% { --angle: 0deg; }
-            100% { --angle: 360deg; }
-        }
-
+        .trainer-card { width: 320px; border-radius: 20px; position: relative; padding: 0 20px 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); transition: all 0.4s ease; z-index: 1; }
+        .trainer-card::before { content: ''; position: absolute; inset: -3px; border-radius: 22px; background: conic-gradient(from var(--angle), transparent 50%, var(--dotin-blue) 80%, var(--combat-red) 100%); z-index: -2; animation: spin-border 3s linear infinite; }
+        .trainer-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(145deg, #111, #1a1a1a); border-radius: 20px; z-index: -1; }
+        @keyframes spin-border { 0% { --angle: 0deg; } 100% { --angle: 360deg; } }
         .trainer-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 30px rgba(0, 86, 179, 0.4); }
 
-        .trainer-img-wrap { 
-            width: 100%; 
-            height: 150px; 
-            position: relative; 
-            z-index: 10;
-        }
-
-        .trainer-img { 
-            width: 95%; 
-            position: absolute; 
-            bottom: 0%; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            z-index: 10; 
-            filter: drop-shadow(0 -10px 20px rgba(0,0,0,0.6));
-            transition: transform 0.4s ease;
-            pointer-events: none;
-            -webkit-mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px);
-            mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px);
-        }
-
+        .trainer-img-wrap { width: 100%; height: 150px; position: relative; z-index: 10; }
+        .trainer-img { width: 95%; position: absolute; bottom: 0%; left: 50%; transform: translateX(-50%); z-index: 10; filter: drop-shadow(0 -10px 20px rgba(0,0,0,0.6)); transition: transform 0.4s ease; pointer-events: none; -webkit-mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px); mask-image: linear-gradient(to top, transparent 0px, rgba(0,0,0,1) 40px); }
         .trainer-card:hover .trainer-img { transform: translateX(-50%) scale(1.08); }
 
         .trainer-details { padding-top: 20px; position: relative; z-index: 5; }
@@ -474,30 +398,8 @@
         .trainer-details .role { color: #8ab4f8; font-size: 1.1rem; font-weight: 800; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; }
         .trainer-details .sub-role { color: #aaaaaa; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; display: block;}
 
-        .trainer-ig-btn { 
-            width: 60px; 
-            height: 60px; 
-            margin: 0 auto;
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            background: linear-gradient(145deg, #1f1f1f, #0a0a0a); 
-            border-radius: 50%; 
-            font-size: 1.8rem; 
-            color: #E1306C; 
-            box-shadow: 5px 5px 15px #050505, -5px -5px 15px #252525; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            text-decoration: none; 
-            border: 2px solid transparent;
-        }
-        
-        .trainer-ig-btn:hover { 
-            transform: translateY(-8px) scale(1.1); 
-            color: #fff;
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            box-shadow: 0 10px 25px rgba(225, 48, 108, 0.5); 
-            border-color: #fff;
-        }
+        .trainer-ig-btn { width: 60px; height: 60px; margin: 0 auto; display: flex; justify-content: center; align-items: center; background: linear-gradient(145deg, #1f1f1f, #0a0a0a); border-radius: 50%; font-size: 1.8rem; color: #E1306C; box-shadow: 5px 5px 15px #050505, -5px -5px 15px #252525; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; border: 2px solid transparent; }
+        .trainer-ig-btn:hover { transform: translateY(-8px) scale(1.1); color: #fff; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 10px 25px rgba(225, 48, 108, 0.5); border-color: #fff; }
 
         /* --- 7. UPDATES SECTION --- */
         .updates-section { padding: 100px 5%; background: linear-gradient(135deg, #ffffff 0%, #ebf4fc 100%); text-align: center; color: #333; }
@@ -531,20 +433,6 @@
         .branches-section { padding: 80px 5%; background-color: var(--text-white); text-align: center; color: #000; }
         .branches-section h2 { font-family: 'Anton', sans-serif; font-size: 3.5rem; color: var(--combat-red); margin-bottom: 5px; }
         .branches-section .hint { color: #666; font-size: 0.95rem; font-weight: 600; margin-bottom: 40px; }
-        
-        @keyframes boxGlow {
-            from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3), inset 0 0 10px rgba(255, 215, 0, 0.1); }
-            to { box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), inset 0 0 20px rgba(255, 215, 0, 0.2); transform: scale(1.02); }
-        }
-        .review-box:hover { transform: translateY(-10px) scale(1.04); animation: none; box-shadow: 0 15px 40px rgba(255, 215, 0, 0.8); }
-        
-        .stars-wrap { margin-bottom: 15px; }
-        .stars-wrap .fa-star { color: #e4e4e4; font-size: 1.8rem; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin: 0 3px; transform: scale(0.8); }
-        .stars-wrap .fa-star.active { color: #FFD700; text-shadow: 0 0 15px #FFD700; transform: scale(1.2); }
-        
-        .review-count-text { font-family: 'Anton', sans-serif; font-size: 2.8rem; color: #333; line-height: 1; }
-        .review-count-label { font-size: 0.9rem; font-weight: 800; text-transform: uppercase; color: #666; margin-bottom: 15px; letter-spacing: 1px; }
-        .review-desc { font-style: italic; color: #555; font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
 
         .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .branch-card { background: #f9f9f9; padding: 40px 20px; border: 2px solid #eee; border-radius: 15px; cursor: pointer; transition: all 0.4s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;}
@@ -557,6 +445,7 @@
         .branch-counter-label { color: #333; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; transition: 0.3s; min-height: 40px; display: flex; align-items: center; justify-content: center; }
         .branch-card:hover .branch-counter-label { color: #fff; }
 
+        /* SEO: Enhanced Titles for Branches */
         .branch-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; transition: 0.3s; font-size: 1.3rem; margin-top: auto;}
         .branch-card p.branch-loc { color: #666; margin-top: 5px; font-size: 0.85rem; transition: 0.3s; margin-bottom: 10px;}
         .branch-card:hover h3, .branch-card:hover p.branch-loc { color: #fff; }
@@ -620,7 +509,7 @@
             
             .courses-affiliations-wrapper { margin-top: 50px; }
             .affiliation-logos img { height: 45px; gap: 20px; }
-            .affiliation-logos img.large-logo { height: 65px; } /* Adjusted size for mobile */
+            .affiliation-logos img.large-logo { height: 65px; }
             .affiliation-logos { justify-content: center; } 
         }
     </style>
@@ -658,7 +547,7 @@
         </video>
         <div class="hero-content">
             <p class="top-title" data-aos="fade-up" data-aos-delay="300">THE BEST MARTIAL ARTS ACADEMY IN KOLLAM</p>
-            <h1 data-aos="zoom-out" data-aos-delay="600">COMBAT FIGHT CLUB</h1>
+            <h1 data-aos="zoom-out" data-aos-delay="600">COMBAT FIGHT CLUB KOLLAM</h1>
             <p class="subtitle" data-aos="fade-up" data-aos-delay="900">Experience world-class training in Combat Sports and Martial Arts. We transform beginners into professional athletes.</p>
             <a href="https://wa.me/918590342628?text=Hi,%20I%20would%20like%20to%20join%20Combat%20Fight%20Club!" target="_blank" class="join-btn" data-aos="zoom-in" data-aos-delay="1200">JOIN WITH US</a>
         </div>
@@ -668,18 +557,12 @@
                 <div class="ticker-item"><i class="fas fa-star"></i> 100+ National Players</div>
                 <div class="ticker-item"><i class="fas fa-trophy"></i> 50+ State Champions</div>
                 <div class="ticker-item"><i class="fas fa-fist-raised"></i> Multiple Pro Fight Winnings</div>
-                <div class="ticker-item"><i class="fas fa-map-marker-alt"></i> 7+ Branches Across Kollam</div>
-                <div class="ticker-item"><i class="fas fa-dumbbell"></i> Professional MMA Coaching</div>
-                <div class="ticker-item"><i class="fas fa-star"></i> 100+ National Players</div>
-                <div class="ticker-item"><i class="fas fa-trophy"></i> 50+ State Champions</div>
-                <div class="ticker-item"><i class="fas fa-fist-raised"></i> Multiple Pro Fight Winnings</div>
-                <div class="ticker-item"><i class="fas fa-map-marker-alt"></i> 7+ Branches Across Kollam</div>
+                <div class="ticker-item"><i class="fas fa-map-marker-alt"></i> 8 Branches Across Kollam</div>
                 <div class="ticker-item"><i class="fas fa-dumbbell"></i> Professional MMA Coaching</div>
             </div>
         </div>
     </section>
 
-    <!-- CHAMPIONS POSTER SECTION (SWIPEABLE) -->
     <section class="champions-section" id="champions">
         <div class="section-header">
             <h2 data-aos="zoom-in">OUR RECENT CHAMPIONS</h2>
@@ -687,96 +570,68 @@
         </div>
         
         <div class="champions-carousel-wrapper" data-aos="fade-up" data-aos-delay="100">
-            <!-- Left Swipe Button -->
-            <button class="carousel-btn left-btn" onclick="slideChampions(-1)">&#10094;</button>
-            
+            <button class="carousel-btn left-btn" onclick="slideChampions(-1)">❮</button>
             <div class="champions-slider" id="championsSlider">
-                
-                <!-- Poster 1 -->
-                <div class="champion-poster">
-                    <img src="./photos/KERALA STATE KICKBOXING CHAMPIONSHIP 2026.png" alt="Recent Champion 1">
-                </div>
-                
-                <!-- Poster 2 -->
-                <div class="champion-poster">
-                    <img src="./photos/kak tlvr.png" alt="Recent Champion 2">
-                </div>
-
-                <!-- Updating Box 1 -->
-                <div class="champion-poster placeholder-poster">
-                     <img src="./photos/DEVIKA.png" alt="Recent Champion 2">
-                </div>
-                
-                <!-- Updating Box 2 -->
-                <div class="champion-poster placeholder-poster">
-                    <div class="updating-text">UPDATING...</div>
-                </div>
-
-                <!-- Iniyum boxes venamenkil melel ulla div copy cheythu ivide iduka -->
-
+                <div class="champion-poster"><img src="./photos/KERALA STATE KICKBOXING CHAMPIONSHIP 2026.png" alt="Kickboxing Champion"></div>
+                <div class="champion-poster"><img src="./photos/kak tlvr.png" alt="Recent Champion"></div>
+                <div class="champion-poster placeholder-poster"><img src="./photos/DEVIKA.png" alt="Champion Devika"></div>
+                <div class="champion-poster placeholder-poster"><div class="updating-text">UPDATING...</div></div>
             </div>
-            
-            <!-- Right Swipe Button -->
-            <button class="carousel-btn right-btn" onclick="slideChampions(1)">&#10095;</button>
+            <button class="carousel-btn right-btn" onclick="slideChampions(1)">❯</button>
         </div>
     </section>
 
-    <!-- COURSES SECTION -->
     <section class="courses-section" id="courses">
         <div class="section-header">
             <h2 data-aos="zoom-in">CHOOSE YOUR DISCIPLINE</h2>
             <p class="quote" data-aos="fade-up" data-aos-delay="200">"It’s not about being better than someone else. It’s about being better than you were yesterday."</p>
+            <p class="membership-note" data-aos="fade-up" data-aos-delay="250">* Currently offering monthly training plans. (Yearly membership packages coming soon!)</p>
         </div>
+
         <div class="courses-grid">
             <div class="course-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/boxing.jpg" alt="Boxing"></div>
+                    <div class="course-img-box"><img src="./photos/boxing.jpg" alt="Boxing Classes in Kollam"></div>
                     <div class="course-content"><h3>BOXING</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/kb.jpg" alt="Kickboxing"></div>
+                    <div class="course-img-box"><img src="./photos/kb.jpg" alt="Kickboxing Training"></div>
                     <div class="course-content"><h3>KICKBOXING</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/Sanda (1).jpg" alt="Wushu"></div>
+                    <div class="course-img-box"><img src="./photos/Sanda (1).jpg" alt="Wushu Classes"></div>
                     <div class="course-content"><h3>WUSHU</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/muay-thai (1).jpg" alt="Muay-Thai"></div>
+                    <div class="course-img-box"><img src="./photos/muay-thai (1).jpg" alt="Muay-Thai Training"></div>
                     <div class="course-content"><h3>MUAY-THAI</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/mma.jpg" alt="MMA"></div>
+                    <div class="course-img-box"><img src="./photos/mma.jpg" alt="MMA Academy"></div>
                     <div class="course-content"><h3>MMA</h3></div>
                 </div>
             </div>
         </div>
 
-        <!-- AFFILIATIONS IN COURSES SECTION -->
         <div class="courses-affiliations-wrapper" data-aos="fade-up" data-aos-delay="600">
             <p class="affiliated-text">Affiliated by</p>
             <div class="affiliation-logos">
                 <img src="./photos/KAK_LOGO-removebg-preview (1).png" alt="KAK" title="KAK">
                 <img src="./photos/Sports-Authority-of-India-SAI-Logo-removebg-preview.png" alt="SAI" title="Sports Authority of India">
-                
-                <!-- Added "large-logo" class to increase size for this specific one -->
                 <img src="./photos/Ministry-of-Youth-Affairs-and-Sports-688x387-removebg-preview.png" alt="Ministry of Youth Affairs" title="Ministry of Youth Affairs" class="large-logo">
-                
                 <img src="./photos/khelo-india-logo-png_seeklogo-520946-removebg-preview.png" alt="Khelo India" title="Khelo India">
                 <img src="./photos/KUDO_INT_LOGO-removebg-preview.png" alt="Kudo International Federation" title="Kudo International Federation">
-                
-                <!-- New two logos added here -->
-                <img src="./photos/WBC_New_Logo_2025-removebg-preview.png" alt="Affiliation 6" title="Affiliation 6">
+                <img src="./photos/WBC_New_Logo_2025-removebg-preview.png" alt="WBC" title="WBC">
                 <img src="./photos/OIP-removebg-preview.png" alt="Affiliation 7" title="Affiliation 7">
-                <img src="./photos/733-7335608_fit-india-logo-png-fit-india-logos-transparent-removebg-preview.png" alt="Affiliation 7" title="Affiliation 7">
+                <img src="./photos/733-7335608_fit-india-logo-png-fit-india-logos-transparent-removebg-preview.png" alt="Fit India" title="Fit India">
             </div>
         </div>
     </section>
@@ -809,58 +664,38 @@
         </div>
     </section>
 
-    <!-- TRAINERS SECTION -->
     <section class="trainers-section" id="trainers">
         <div class="section-header">
             <h2 data-aos="zoom-in">OUR EXPERT TRAINERS</h2>
         </div>
         <div class="trainers-grid">
-            
-            <!-- Trainer Card 1 -->
             <div class="trainer-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="trainer-img-wrap">
-                    <img src="./photos/coach.jpg" alt="Head Coach" class="trainer-img">
-                </div>
+                <div class="trainer-img-wrap"><img src="./photos/coach.jpg" alt="Head Coach Sarath S" class="trainer-img"></div>
                 <div class="trainer-details">
                     <h3>SARATH S</h3>
                     <p class="role">Head Coach</p>
                     <span class="sub-role">Club in Charge : Kottarakkara-Anchal-Thalavoor</span>
-                    <a href="https://www.instagram.com/coach_sarath__?igsh=anh0YXo4dDk5cTIy" target="_blank" class="trainer-ig-btn">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                    <a href="https://www.instagram.com/coach_sarath__?igsh=anh0YXo4dDk5cTIy" target="_blank" class="trainer-ig-btn"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-
-            <!-- Trainer Card 2 -->
             <div class="trainer-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="trainer-img-wrap">
-                    <img src="./photos/anoj.jpg" alt="Senior Coach" class="trainer-img">
-                </div>
+                <div class="trainer-img-wrap"><img src="./photos/anoj.jpg" alt="Senior Coach Anoj Philip" class="trainer-img"></div>
                 <div class="trainer-details">
                     <h3>ANOJ PHILIP</h3>
                     <p class="role">Senior Coach</p>
                     <span class="sub-role">Club in Charge : Punalur-Chadayamangalam</span>
-                    <a href="https://www.instagram.com/thereal_anoj_14?igsh=MWM5NDRuamNqaDNj" target="_blank" class="trainer-ig-btn">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                    <a href="https://www.instagram.com/thereal_anoj_14?igsh=MWM5NDRuamNqaDNj" target="_blank" class="trainer-ig-btn"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-
-            <!-- Trainer Card 3 -->
             <div class="trainer-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="trainer-img-wrap">
-                    <img src="./photos/athul.png" alt="MMA Coach" class="trainer-img">
-                </div>
+                <div class="trainer-img-wrap"><img src="./photos/athul.png" alt="MMA Coach Athul Mohan" class="trainer-img"></div>
                 <div class="trainer-details">
                     <h3>ATHUL MOHAN</h3>
                     <p class="role">Senior Coach</p>
                     <span class="sub-role">Club in Charge : Oyoor</span>
-                    <a href="https://www.instagram.com/_athul._.mohan_?igsh=dTB2bG15YzNwOTJx" target="_blank" class="trainer-ig-btn">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                    <a href="https://www.instagram.com/_athul._.mohan_?igsh=dTB2bG15YzNwOTJx" target="_blank" class="trainer-ig-btn"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -875,6 +710,7 @@
                 <span class="update-badge">Special Package</span>
                 <h3>Combat Fight Club <br><span style="color: var(--combat-red);">×</span> O2 Gym & Universal Gym</h3>
                 <p>Experience the ultimate fitness journey! We have integrated our professional combat sports training with top-tier gym facilities at O2 Gym (Oyoor) and Universal Gym (Chadayamangalam).</p>
+                <p style="font-size: 0.9rem; font-style: italic; margin-top: -15px;">*Note: Combat Fight Club is purely a martial arts training academy and does not maintain an in-house gym facility. Gym access is provided exclusively through our partner facilities.</p>
                 <a href="https://wa.me/918590342628?text=Hi,%20I%20would%20like%20to%20explore%20the%20special%20integrated%20package!" target="_blank" class="update-btn"><i class="fab fa-whatsapp"></i> EXPLORE THE PACKAGE</a>
             </div>
         </div>
@@ -890,72 +726,64 @@
         </div>
     </section>
 
-    <!-- OUR BRANCHES & REVIEWS SECTION -->
     <section class="branches-section" id="branches">
-        <h2 data-aos="fade-up">OUR BRANCHES</h2>
+        <h2 data-aos="fade-up">OUR BRANCHES IN KOLLAM</h2>
         <p class="hint" data-aos="fade-up">Click on a branch card to view live status, location map & details.</p>
 
         <div class="branches-grid">
             <div class="branch-card" data-aos="zoom-in" onclick="openBranch('punalur')">
-                <div class="branch-counter-wrap">
-                    <span class="branch-count js-branch-counter" data-target="25">0</span><span class="branch-plus">+</span>
-                </div>
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="25">0</span><span class="branch-plus">+</span></div>
                 <p class="branch-counter-label">New admissions <br>in last month</p>
-                <h3>Punalur</h3><p class="branch-loc">Post Office Junction</p>
+                <h3 title="Best Martial Arts in Punalur">Punalur</h3><p class="branch-loc">Post Office Junction</p>
                 <div class="view-details-tag">View Details</div>
             </div>
             
             <div class="branch-card" data-aos="zoom-in" data-aos-delay="100" onclick="openBranch('kottarakkara')">
-                <div class="branch-counter-wrap">
-                    <span class="branch-count js-branch-counter" data-target="100">0</span><span class="branch-plus">+</span>
-                </div>
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="100">0</span><span class="branch-plus">+</span></div>
                 <p class="branch-counter-label">Medals</p>
-                <h3>Kottarakkara</h3><p class="branch-loc">NSS complex-Market JN</p>
+                <h3 title="Best Boxing Academy in Kottarakkara">Kottarakkara</h3><p class="branch-loc">NSS complex-Market JN</p>
                 <div class="view-details-tag">View Details</div>
             </div>
             
             <div class="branch-card" data-aos="zoom-in" data-aos-delay="200" onclick="openBranch('anchal')">
-                <div class="branch-counter-wrap">
-                    <span class="branch-count js-branch-counter" data-target="50">0</span><span class="branch-plus">+</span>
-                </div>
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="50">0</span><span class="branch-plus">+</span></div>
                 <p class="branch-counter-label">Students</p>
-                <h3>Anchal</h3><p class="branch-loc">Yeroor Junction</p>
+                <h3 title="Martial Arts Training in Anchal">Anchal</h3><p class="branch-loc">Yeroor Junction</p>
                 <div class="view-details-tag">View Details</div>
             </div>
             
             <div class="branch-card" data-aos="zoom-in" data-aos-delay="300" onclick="openBranch('oyoor')">
-                <div class="branch-counter-wrap">
-                    <span class="branch-count js-branch-counter" data-target="25">0</span><span class="branch-plus">+</span>
-                </div>
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="25">0</span><span class="branch-plus">+</span></div>
                 <p class="branch-counter-label">Live Students</p>
-                <h3>Oyoor</h3><p class="branch-loc">Chunkathara-Oyoor</p>
+                <h3 title="MMA and Boxing in Oyoor">Oyoor</h3><p class="branch-loc">Chunkathara-Oyoor</p>
                 <div class="view-details-tag">View Details</div>
             </div>
             
             <div class="branch-card" data-aos="zoom-in" data-aos-delay="400" onclick="openBranch('thalavoor')">
-                <div class="branch-counter-wrap">
-                    <span class="branch-count js-branch-counter" data-target="25">0</span><span class="branch-plus">+</span>
-                </div>
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="25">0</span><span class="branch-plus">+</span></div>
                 <p class="branch-counter-label">State Players</p>
-                <h3>Thalavoor</h3><p class="branch-loc">Near-Thalavoor Temple</p>
+                <h3 title="Martial Arts in Thalavoor">Thalavoor</h3><p class="branch-loc">Near-Thalavoor Temple</p>
                 <div class="view-details-tag">View Details</div>
             </div>
             
             <div class="branch-card" data-aos="zoom-in" data-aos-delay="500" onclick="openBranch('pattazhy')">
-                <div class="branch-counter-wrap">
-                    <span class="branch-count js-branch-counter" data-target="10">0</span><span class="branch-plus">+</span>
-                </div>
-                <p class="branch-counter-label">Recent admissions <br>in one week</p>
-                <h3>Pattazhy</h3><p class="branch-loc">Pattazhy Junction</p>
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="10">0</span><span class="branch-plus">+</span></div>
+                <p class="branch-counter-label">Recent admissions</p>
+                <h3 title="Martial Arts Training in Pattazhy">Pattazhy</h3><p class="branch-loc">Pattazhy Junction</p>
                 <div class="view-details-tag">View Details</div>
             </div>
             
             <div class="branch-card" data-aos="zoom-in" data-aos-delay="600" onclick="openBranch('chadayamangalam')">
-                <div class="branch-counter-wrap">
-                    <span class="branch-count js-branch-counter" data-target="15">0</span><span class="branch-plus">+</span>
-                </div>
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="15">0</span><span class="branch-plus">+</span></div>
                 <p class="branch-counter-label">State Medals</p>
-                <h3>Chadayamangalam</h3><p class="branch-loc">Universal Gym Route</p>
+                <h3 title="Boxing and MMA in Chadayamangalam">Chadayamangalam</h3><p class="branch-loc">Universal Gym Route</p>
+                <div class="view-details-tag">View Details</div>
+            </div>
+            
+            <div class="branch-card" data-aos="zoom-in" data-aos-delay="700" onclick="openBranch('kadakkal')">
+                <div class="branch-counter-wrap"><span class="branch-count js-branch-counter" data-target="50">0</span><span class="branch-plus">+</span></div>
+                <p class="branch-counter-label">Admission Ongoing</p>
+                <h3 title="Best Martial Arts Club in Kadakkal">Kadakkal</h3><p class="branch-loc">Nearest to Kadakkal Bus stand </p>
                 <div class="view-details-tag">View Details</div>
             </div>
         </div>
@@ -990,63 +818,20 @@
         const closeBtn = document.getElementById('closeBtn');
         const navLinks = document.querySelectorAll('.nav-links a');
 
-        hamburgerBtn.addEventListener('click', () => {
-            navMenu.style.right = '0';
-        });
+        hamburgerBtn.addEventListener('click', () => { navMenu.style.right = '0'; });
+        closeBtn.addEventListener('click', () => { navMenu.style.right = '-100%'; });
+        navLinks.forEach(link => { link.addEventListener('click', () => { navMenu.style.right = '-100%'; }); });
 
-        closeBtn.addEventListener('click', () => {
-            navMenu.style.right = '-100%';
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.style.right = '-100%';
-            });
-        });
-
+        /* --- BRANCH DATA WITH KADAKKAL ADDED --- */
         const branchesData = {
-            'punalur': { 
-                name: 'Punalur', loc: 'Post Office Junction', 
-                mapQuery: 'Punalur post office junction', 
-                mapUrl: 'https://maps.app.goo.gl/ecZf9aPBvVfXBgpU9?g_st=ac',
-                games: 'Boxing, KickBoxing, Wushu, MMA, Muay-Thai, Personal Training', timeText: 'Mon - Sat: 5:00 PM - 9:30 PM', daysOpen: [1,2,3,4,5,6], openTime: 17.0, closeTime: 21.5 
-            },
-            'kottarakkara': { 
-                name: 'Kottarakkara', loc: 'NSS union complex-Market JN', 
-                mapQuery: 'NSS union complex Kottarakkara, Kerala', 
-                mapUrl: 'https://maps.app.goo.gl/AKir27gzYbENBPf18',
-                games: 'Boxing, Muay-Thai, Kickboxing, Wushu, MMA', timeText: 'Head Office (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 9.0, closeTime: 21.5 
-            },
-            'anchal': { 
-                name: 'Anchal', loc: 'Yeroor Junction', 
-                mapQuery: 'Yeroor Junction Anchal, Kerala', 
-                mapUrl: 'https://maps.app.goo.gl/G96fSexp9tY668SX7',
-                games: 'Kickboxing, Wushu, MMA, Boxing, Muay Thai', timeText: 'Mon-Wed-Fri : 5:30 PM - 9:30 PM', daysOpen: [1,3,5], openTime: 17.0, closeTime: 21.5 
-            },
-            'oyoor': { 
-                name: 'Oyoor', loc: 'Chunkathara-Oyoor (O2 Gym)', 
-                mapQuery: 'Oyoor Chunkathara, Kerala', 
-                mapUrl: 'https://maps.app.goo.gl/9tjZzdiTCiJ7zAPm8?g_st=ac',
-                games: 'Boxing, Wushu, Muay-Thai,  Kickboxing', timeText: 'Mon-Thur-Sat : 5:30 PM - 9:30 PM', daysOpen: [1,4,6], openTime: 17.0, closeTime: 21.5 
-            },
-            'thalavoor': { 
-                name: 'Thalavoor', loc: 'Near-Thalavoor Devi Temple', 
-                mapQuery: 'Thalavoor Devi Temple, Kerala', 
-                mapUrl: 'https://maps.app.goo.gl/fXUs16PyCxMtgHFq5',
-                games: 'MMA, Boxing', timeText: 'Weekend Batches (Sat & Sun)', daysOpen: [0,6], openTime: 17.0, closeTime: 19.5 
-            },
-            'pattazhy': { 
-                name: 'Pattazhy', loc: 'Pattazhy Junction', 
-                mapQuery: 'Pattazhy, Kerala', 
-                mapUrl: 'https://maps.app.goo.gl/9tjZzdiTCiJ7zAPm8?g_st=ac',
-                games: 'Kickboxing, Wushu', timeText: 'Evening Batches (Mon-Sat-Sun)', daysOpen: [0,1,6], openTime: 18.0, closeTime: 20.5 
-            },
-            'chadayamangalam': { 
-                name: 'Chadayamangalam', loc: 'Universal Gym Route', 
-                mapQuery: 'Universal Gym Chadayamangalam, Kerala', 
-                mapUrl: 'https://maps.app.goo.gl/evLADb7PfQFgY9UF8?g_st=ac',
-                games: 'Muay Thai, MMA', timeText: 'Evening Batches (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 19.0, closeTime: 20.5 
-            }
+            'punalur': { name: 'Punalur', loc: 'Post Office Junction', mapQuery: 'Punalur post office junction', mapUrl: 'https://maps.app.goo.gl/ecZf9aPBvVfXBgpU9?g_st=ac', games: 'Boxing, KickBoxing, Wushu, MMA, Muay-Thai', timeText: 'Mon - Sat: 5:00 PM - 9:30 PM', daysOpen: [1,2,3,4,5,6], openTime: 17.0, closeTime: 21.5 },
+            'kottarakkara': { name: 'Kottarakkara', loc: 'NSS union complex-Market JN', mapQuery: 'NSS union complex Kottarakkara, Kerala', mapUrl: 'https://maps.app.goo.gl/AKir27gzYbENBPf18', games: 'Boxing, Muay-Thai, Kickboxing, Wushu, MMA', timeText: 'Head Office (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 9.0, closeTime: 21.5 },
+            'anchal': { name: 'Anchal', loc: 'Yeroor Junction', mapQuery: 'Yeroor Junction Anchal, Kerala', mapUrl: 'https://maps.app.goo.gl/G96fSexp9tY668SX7', games: 'Kickboxing, Wushu, MMA, Boxing, Muay Thai', timeText: 'Mon-Wed-Fri : 5:30 PM - 9:30 PM', daysOpen: [1,3,5], openTime: 17.0, closeTime: 21.5 },
+            'oyoor': { name: 'Oyoor', loc: 'Chunkathara-Oyoor (O2 Gym)', mapQuery: 'Oyoor Chunkathara, Kerala', mapUrl: 'https://maps.app.goo.gl/9tjZzdiTCiJ7zAPm8?g_st=ac', games: 'Boxing, Wushu, Muay-Thai, Kickboxing', timeText: 'Mon-Thur-Sat : 5:30 PM - 9:30 PM', daysOpen: [1,4,6], openTime: 17.0, closeTime: 21.5 },
+            'thalavoor': { name: 'Thalavoor', loc: 'Near-Thalavoor Devi Temple', mapQuery: 'Thalavoor Devi Temple, Kerala', mapUrl: 'https://maps.app.goo.gl/fXUs16PyCxMtgHFq5', games: 'Kickboxing, Muay-Thai, Boxing', timeText: 'Weekend Batches (Sat & Sun)', daysOpen: [0,6], openTime: 17.0, closeTime: 19.5 },
+            'pattazhy': { name: 'Pattazhy', loc: 'Pattazhy Junction', mapQuery: 'Pattazhy, Kerala', mapUrl: 'https://maps.app.goo.gl/9tjZzdiTCiJ7zAPm8?g_st=ac', games: 'Kickboxing, Wushu', timeText: 'Evening Batches (Mon-Sat-Sun)', daysOpen: [0,1,6], openTime: 18.0, closeTime: 20.5 },
+            'chadayamangalam': { name: 'Chadayamangalam', loc: 'Universal Gym Route', mapQuery: 'Universal Gym Chadayamangalam, Kerala', mapUrl: 'https://maps.app.goo.gl/evLADb7PfQFgY9UF8?g_st=ac', games: 'Muay Thai, Wushu, Kickboxing, Boxing, Gym', timeText: 'Evening Batches (Mon - Sat)', daysOpen: [1,2,3,4,5,6], openTime: 19.0, closeTime: 20.5 },
+            'kadakkal': { name: 'Kadakkal', loc: 'Town Center', mapQuery: 'Kadakkal, Kerala', mapUrl: 'https://maps.app.goo.gl/Zf3hnEwfrQZKB1bT9', games: 'Boxing, Wushu, Muay-Thai, Karate, Kickboxing, MMA', timeText: 'Evening Batches', daysOpen: [1,2,3,4,5,6], openTime: 17.0, closeTime: 20.5 }
         };
 
         function openBranch(branchId) {
@@ -1063,14 +848,13 @@
                 statusHtml = '<span style="color: #25D366; font-weight: bold; margin-top: 5px; display: inline-block;">🟢 OPEN NOW</span>';
             }
 
-            const genericMapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(data.mapQuery)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
-            const mapLinkUrl = data.mapUrl;
+            const genericMapEmbed = `https://maps.google.com/maps?q=$${encodeURIComponent(data.mapQuery)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
             body.innerHTML = `
                 <iframe src="${genericMapEmbed}" class="modal-img" frameborder="0"></iframe>
                 <h2>${data.name} BRANCH</h2>
                 <div class="modal-info-grid">
-                    <div class="info-box"><h4><i class="fas fa-location-arrow"></i> Location</h4><p>${data.loc}<br><a href="${mapLinkUrl}" target="_blank" style="color:var(--dotin-blue);font-weight:600;text-decoration:underline;font-size:0.8rem;"><i class="fas fa-map"></i> View Google Maps</a></p></div>
+                    <div class="info-box"><h4><i class="fas fa-location-arrow"></i> Location</h4><p>${data.loc}<br><a href="${data.mapUrl}" target="_blank" style="color:var(--dotin-blue);font-weight:600;text-decoration:underline;font-size:0.8rem;"><i class="fas fa-map"></i> View Google Maps</a></p></div>
                     <div class="info-box"><h4><i class="fas fa-fist-raised"></i> Disciplines</h4><p>${data.games}</p></div>
                     <div class="info-box"><h4><i class="fas fa-clock"></i> Timings</h4><p>${data.timeText}<br>${statusHtml}</p></div>
                     <div class="info-box"><h4><i class="fas fa-phone-alt"></i> Call</h4><p>+91 8590342628</p></div>
@@ -1084,7 +868,7 @@
         function closeModal() { document.getElementById('branchModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
         window.onclick = function(e) { if (e.target == document.getElementById('branchModal')) closeModal(); }
 
-        /* --- Instagram Counter --- */
+        /* Counters and slider scripts remain unchanged */
         const counterIG = document.querySelector('.ig-counter-text');
         function startCounterLoopIG() {
             counterIG.innerText = '0';
@@ -1100,13 +884,10 @@
         const observerIG = new IntersectionObserver((entries) => { if(entries[0].isIntersecting) { startCounterLoopIG(); observerIG.unobserve(counterIG); } }, { threshold: 0.5 });
         if(counterIG) observerIG.observe(counterIG);
 
-        /* --- Branch Counters & Review Counters --- */
         const branchCounters = document.querySelectorAll('.js-branch-counter');
-        
         function animateBranchCounter(counterElement) {
             counterElement.innerText = '0';
             const target = +counterElement.getAttribute('data-target');
-            
             let speed = 50; 
             if (target > 50) speed = 30;
             if (target > 90) speed = 15;
@@ -1114,7 +895,6 @@
             const updateCount = () => {
                 const count = +counterElement.innerText;
                 const increment = Math.ceil(target / 25); 
-
                 if (count < target) {
                     let nextCount = count + increment;
                     if (nextCount > target) nextCount = target;
@@ -1138,50 +918,14 @@
                 }
             });
         }, { threshold: 0.5 });
-
         branchCounters.forEach(counter => observerBranch.observe(counter));
 
-        /* --- Stars Animation for Google Reviews --- */
-        const starContainers = document.querySelectorAll('.js-stars-anim');
-        
-        const observerStars = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const container = entry.target;
-                    if (!container.classList.contains('is-animating')) {
-                        container.classList.add('is-animating');
-                        const stars = container.querySelectorAll('.js-star');
-                        
-                        // Activate stars one by one
-                        stars.forEach((star, index) => {
-                            setTimeout(() => {
-                                star.classList.add('active');
-                            }, (index + 1) * 300); // 300ms delay between each star
-                        });
-                        
-                        // Reset and replay animation loop after a few seconds
-                        setTimeout(() => {
-                            stars.forEach(star => star.classList.remove('active'));
-                            container.classList.remove('is-animating');
-                        }, 4000); 
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-
-        starContainers.forEach(container => observerStars.observe(container));
-
-        /* --- CHAMPIONS SWIPE LOGIC --- */
         function slideChampions(direction) {
             const slider = document.getElementById('championsSlider');
-            // Check if mobile or desktop to determine scroll distance
             const itemWidth = slider.querySelector('.champion-poster').offsetWidth;
-            const gap = 40; // Same as CSS gap
-            const scrollAmount = itemWidth + gap;
-            
+            const scrollAmount = itemWidth + 40; 
             slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
-
     </script>
 </body>
 </html>
