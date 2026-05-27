@@ -512,9 +512,131 @@
             .affiliation-logos img.large-logo { height: 65px; }
             .affiliation-logos { justify-content: center; } 
         }
+        /* =========================================
+            PRO FIGHT NIGHT EVENT SPECIAL CSS 
+            ========================================= */
+        
+        /* 1. Event Popup Modal */
+        .fight-popup-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: none; justify-content: center; align-items: center;
+            z-index: 3000; backdrop-filter: blur(10px);
+            padding: 20px;
+        }
+        .fight-popup-content {
+            background: linear-gradient(135deg, #111, #1a1a1a);
+            width: 100%; max-width: 500px;
+            padding: 40px 20px; text-align: center;
+            border-radius: 15px; position: relative;
+            border: 2px solid var(--combat-red);
+            box-shadow: 0 0 30px rgba(255, 49, 49, 0.4), inset 0 0 20px rgba(255, 49, 49, 0.2);
+            animation: popupScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popupScale {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .close-fight-popup {
+            position: absolute; top: -15px; right: -15px;
+            background: var(--combat-red); color: white;
+            width: 40px; height: 40px; border-radius: 50%;
+            font-size: 1.5rem; font-weight: bold; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            border: 2px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        .close-fight-popup:hover { transform: rotate(90deg) scale(1.1); }
+        .popup-badge {
+            background: #FFD700; color: #000; font-weight: 800;
+            padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 2px;
+            display: inline-block; margin-bottom: 15px;
+            animation: pulse-insta 2s infinite;
+        }
+        .fight-popup-content h2 {
+            font-family: 'Anton', sans-serif; font-size: 3.5rem;
+            color: var(--text-white); text-transform: uppercase;
+            line-height: 1.1; margin-bottom: 10px;
+            text-shadow: 0 0 15px var(--combat-red);
+        }
+        .fight-popup-content p { color: #ccc; font-weight: 600; margin-bottom: 25px; line-height: 1.5; }
+        .popup-btn {
+            background: var(--combat-red); color: white;
+            padding: 15px 30px; text-decoration: none; font-weight: 800;
+            text-transform: uppercase; border-radius: 30px;
+            display: inline-block; width: 100%; transition: 0.3s;
+        }
+        .popup-btn:hover { background: white; color: var(--combat-red); transform: scale(1.05); }
+
+        /* 2. Floating Festival Badge (Site-wide) */
+        .floating-fight-badge {
+            position: fixed; left: 20px; bottom: 30px; z-index: 1500;
+            background: linear-gradient(45deg, var(--combat-red), #990000);
+            color: white; padding: 10px 15px; border-radius: 30px;
+            font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.85rem;
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+            box-shadow: 0 0 20px rgba(255, 49, 49, 0.6); border: 2px solid #FFD700;
+            text-decoration: none; transition: 0.3s; cursor: pointer;
+            animation: floatGlow 3s ease-in-out infinite;
+        }
+        .floating-fight-badge i { font-size: 1.2rem; color: #FFD700; animation: shake 2s infinite; }
+        @keyframes floatGlow {
+            0% { transform: translateY(0px); box-shadow: 0 0 20px rgba(255, 49, 49, 0.4); }
+            50% { transform: translateY(-10px); box-shadow: 0 0 30px rgba(255, 49, 49, 0.8), 0 0 10px #FFD700; }
+            100% { transform: translateY(0px); box-shadow: 0 0 20px rgba(255, 49, 49, 0.4); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+        .floating-fight-badge:hover { transform: scale(1.1); background: #FFD700; color: #000; border-color: var(--combat-red); }
+
+        /* 3. Special Event Update Card */
+        .premium-event-card {
+            background: #080808 !important; border: 2px solid var(--combat-red) !important;
+            box-shadow: 0 15px 40px rgba(255, 49, 49, 0.2) !important;
+            position: relative; overflow: hidden; margin-bottom: 40px !important;
+        }
+        .premium-event-card::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--combat-red));
+            animation: rotateGlow 4s linear infinite; z-index: 0;
+        }
+        .premium-event-card::after {
+            content: ''; position: absolute; inset: 4px; background: #080808; border-radius: 16px; z-index: 1;
+        }
+        @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
+        
+        .premium-event-card .update-content, .premium-event-card .update-img { z-index: 2; position: relative; }
+        .premium-event-card .update-content { background: transparent !important; }
+        .premium-event-card h3 { color: var(--text-white) !important; text-shadow: 0 0 10px rgba(255, 49, 49, 0.5); }
+        .premium-event-card p { color: #ccc !important; }
+        
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .fight-popup-content h2 { font-size: 2.8rem; }
+            .floating-fight-badge { bottom: 20px; left: 10px; font-size: 0.75rem; padding: 8px 12px; }
+        }
+
     </style>
 </head>
 <body>
+
+    <div class="fight-popup-overlay" id="fightPopup">
+        <div class="fight-popup-content">
+            <div class="close-fight-popup" onclick="closeFightPopup()">×</div>
+            <span class="popup-badge">History in the Making</span>
+            <h2>PRO FIGHT <br><span style="color: var(--combat-red);">NIGHT</span></h2>
+            <p>For the FIRST TIME EVER in Kottarakkara! Witness the ultimate clash of titans. Professional Kickboxing like you've never seen before.</p>
+            <a href="#updates" class="popup-btn" onclick="closeFightPopup()">Know More Details</a>
+        </div>
+    </div>
+
+    <a href="#updates" class="floating-fight-badge">
+        <i class="fas fa-fire"></i> Live Event
+    </a>
 
     <nav class="navbar" data-aos="fade-down" data-aos-duration="1000">
         <div class="nav-brand">
@@ -543,7 +665,7 @@
 
     <section class="hero" id="home">
         <video autoplay muted loop playsinline id="bg-video">
-            <source src="./videos/combat-fight-club-kollam-martial-arts-training.MP4" type="video/MP4">
+            <source src="./videos/combat-fight-club-kollam-martial-arts-training.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <p class="top-title" data-aos="fade-up" data-aos-delay="300">THE BEST MARTIAL ARTS ACADEMY IN KOLLAM</p>
@@ -572,9 +694,9 @@
         <div class="champions-carousel-wrapper" data-aos="fade-up" data-aos-delay="100">
             <button class="carousel-btn left-btn" onclick="slideChampions(-1)">❮</button>
             <div class="champions-slider" id="championsSlider">
-                <div class="champion-poster"><img src="./photos/kerala-state-kickboxing-championship-winners-2026.webp" alt="Kickboxing Champion"></div>
-                <div class="champion-poster"><img src="./photos/martial-arts-champions-thalavoor.webp" alt="Recent Champion"></div>
-                <div class="champion-poster placeholder-poster"><img src="./photos/internation-kudo-mma-ladies-champion-kollam.webp" alt="Champion Devika"></div>
+                <div class="champion-poster"><img src="./photos/kerala-state-kickboxing-championship-winners-2026.webp" alt="Kickboxing Champion" loading="lazy"></div>
+                <div class="champion-poster"><img src="./photos/martial-arts-champions-thalavoor.webp" alt="Recent Champion" loading="lazy"></div>
+                <div class="champion-poster placeholder-poster"><img src="./photos/internation-kudo-mma-ladies-champion-kollam.webp" alt="Champion Devika" loading="lazy"></div>
                 <div class="champion-poster placeholder-poster"><div class="updating-text">UPDATING...</div></div>
             </div>
             <button class="carousel-btn right-btn" onclick="slideChampions(1)">❯</button>
@@ -591,31 +713,31 @@
         <div class="courses-grid">
             <div class="course-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/best-boxing-classes-in-kollam.webp" alt="Boxing Classes in Kollam"></div>
+                    <div class="course-img-box"><img src="./photos/best-boxing-classes-in-kollam.webp" alt="Boxing Classes in Kollam" loading="lazy"></div>
                     <div class="course-content"><h3>BOXING</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/best-kickboxing-classes-in-kollam.webp" alt="Kickboxing Training"></div>
+                    <div class="course-img-box"><img src="./photos/best-kickboxing-classes-in-kollam.webp" alt="Kickboxing Training" loading="lazy"></div>
                     <div class="course-content"><h3>KICKBOXING</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/wushu-martial-arts-classes-kollam.webp" alt="Wushu Classes"></div>
+                    <div class="course-img-box"><img src="./photos/wushu-martial-arts-classes-kollam.webp" alt="Wushu Classes" loading="lazy"></div>
                     <div class="course-content"><h3>WUSHU</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/muay-thai-coaching-kollam.webp" alt="Muay-Thai Training"></div>
+                    <div class="course-img-box"><img src="./photos/muay-thai-coaching-kollam.webp" alt="Muay-Thai Training" loading="lazy"></div>
                     <div class="course-content"><h3>MUAY-THAI</h3></div>
                 </div>
             </div>
             <div class="course-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="course-inner">
-                    <div class="course-img-box"><img src="./photos/mma-training-club-kollam.webp" alt="MMA Academy"></div>
+                    <div class="course-img-box"><img src="./photos/mma-training-club-kollam.webp" alt="MMA Academy" loading="lazy"></div>
                     <div class="course-content"><h3>MMA</h3></div>
                 </div>
             </div>
@@ -624,14 +746,14 @@
         <div class="courses-affiliations-wrapper" data-aos="fade-up" data-aos-delay="600">
             <p class="affiliated-text">Affiliated by</p>
             <div class="affiliation-logos">
-                <img src="./photos/kudo-international-federation-mma-affiliation.webp" alt="KAK" title="KAK">
-                <img src="./photos/sports-authority-of-india-sai-affiliation.webp" alt="SAI" title="Sports Authority of India">
-                <img src="./photos/ministry-of-youth-affairs-sports-india.webp" alt="Ministry of Youth Affairs" title="Ministry of Youth Affairs" class="large-logo">
-                <img src="./photos/khelo-india-martial-arts-academy.webp" alt="Khelo India" title="Khelo India">
-                <img src="./photos/kak-kickboxing-association-kerala-affiliation.webp" alt="Kudo International Federation" title="Kudo International Federation">
-                <img src="./photos/wbc-boxing-affiliation-kollam.webp" alt="WBC" title="WBC">
-                <img src="./photos/iako-international-asscociation-of-kickboxing-organisation-affiliation.webp" alt="Affiliation 7" title="Affiliation 7">
-                <img src="./photos/fit-india-movement-combat-fight-club.webp" alt="Fit India" title="Fit India">
+                <img src="./photos/kudo-international-federation-mma-affiliation.webp" alt="KAK" title="KAK" loading="lazy">
+                <img src="./photos/sports-authority-of-india-sai-affiliation.webp" alt="SAI" title="Sports Authority of India" loading="lazy">
+                <img src="./photos/ministry-of-youth-affairs-sports-india.webp" alt="Ministry of Youth Affairs" title="Ministry of Youth Affairs" class="large-logo" loading="lazy">
+                <img src="./photos/khelo-india-martial-arts-academy.webp" alt="Khelo India" title="Khelo India" loading="lazy">
+                <img src="./photos/kak-kickboxing-association-kerala-affiliation.webp" alt="Kudo International Federation" title="Kudo International Federation" loading="lazy">
+                <img src="./photos/wbc-boxing-affiliation-kollam.webp" alt="WBC" title="WBC" loading="lazy">
+                <img src="./photos/iako-international-asscociation-of-kickboxing-organisation-affiliation.webp" alt="Affiliation 7" title="Affiliation 7" loading="lazy">
+                <img src="./photos/fit-india-movement-combat-fight-club.webp" alt="Fit India" title="Fit India" loading="lazy">
             </div>
         </div>
     </section>
@@ -670,7 +792,7 @@
         </div>
         <div class="trainers-grid">
             <div class="trainer-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="trainer-img-wrap"><img src="./photos/sarath-s-head-coach-combat-fight-club.webp" alt="Head Coach Sarath S" class="trainer-img"></div>
+                <div class="trainer-img-wrap"><img src="./photos/sarath-s-head-coach-combat-fight-club.webp" alt="Head Coach Sarath S" class="trainer-img" loading="lazy"></div>
                 <div class="trainer-details">
                     <h3>SARATH S</h3>
                     <p class="role">Head Coach</p>
@@ -679,7 +801,7 @@
                 </div>
             </div>
             <div class="trainer-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="trainer-img-wrap"><img src="./photos/anoj-philip-senior-coach-punalur.webp" alt="Senior Coach Anoj Philip" class="trainer-img"></div>
+                <div class="trainer-img-wrap"><img src="./photos/anoj-philip-senior-coach-punalur.webp" alt="Senior Coach Anoj Philip" class="trainer-img" loading="lazy"></div>
                 <div class="trainer-details">
                     <h3>ANOJ PHILIP</h3>
                     <p class="role">Senior Coach</p>
@@ -688,7 +810,7 @@
                 </div>
             </div>
             <div class="trainer-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="trainer-img-wrap"><img src="./photos/athul-mohan-mma-coach-oyoor.webp" alt="MMA Coach Athul Mohan" class="trainer-img"></div>
+                <div class="trainer-img-wrap"><img src="./photos/athul-mohan-mma-coach-oyoor.webp" alt="MMA Coach Athul Mohan" class="trainer-img" loading="lazy"></div>
                 <div class="trainer-details">
                     <h3>ATHUL MOHAN</h3>
                     <p class="role">Senior Coach</p>
@@ -704,6 +826,21 @@
             <h2 data-aos="zoom-in">LATEST UPDATES</h2>
             <p data-aos="fade-up" data-aos-delay="200">Upcoming Events & Exclusive Collaborations</p>
         </div>
+
+        <div class="update-card premium-event-card" data-aos="fade-up">
+            <div class="update-img" style="background-image: url('./photos/pro-fight-night-kottarakkara.webp');">
+                <div class="update-img-overlay" style="background: linear-gradient(to right, transparent, #080808);"></div>
+            </div>
+            <div class="update-content">
+                <span class="update-badge" style="background: #FFD700; color: #000;">First Time in Kottarakkara</span>
+                <h3>PRO KICKBOXING <br><span style="color: var(--combat-red);">FIGHT NIGHT</span></h3>
+                <p>Brace yourselves for the biggest martial arts festival! Combat Fight Club proudly presents the first-ever Professional Kickboxing Fight Night in Kottarakkara. High-voltage fights, stadium vibes, and pure adrenaline.</p>
+                <a href="https://wa.me/918590342628?text=Hi,%20I%20want%20to%20book%20tickets%20for%20the%20Pro%20Fight%20Night!" target="_blank" class="update-btn" style="background: var(--combat-red); box-shadow: 0 5px 15px rgba(255, 49, 49, 0.4);">
+                    <i class="fas fa-ticket-alt"></i> BOOK TICKETS NOW
+                </a>
+            </div>
+        </div>
+
         <div class="update-card" data-aos="fade-up" data-aos-delay="300">
             <div class="update-img"><div class="update-img-overlay"></div></div>
             <div class="update-content">
@@ -720,7 +857,7 @@
         <video autoplay muted loop playsinline class="memorial-bg-video"><source src="./videos/moosa-abdullah-memorial-combat-fight-club.mp4" type="video/mp4"></video>
         <div class="memorial-content">
             <p class="memorial-subtitle" data-aos="fade-down">IN LOVING MEMORY</p>
-            <div class="memorial-photo-wrap" data-aos="zoom-in" data-aos-delay="200"><img src="./photos/moosa-abdullah-memorial-combat-fight-club.webp" alt="Moosa Abdullah" class="memorial-img"></div>
+            <div class="memorial-photo-wrap" data-aos="zoom-in" data-aos-delay="200"><img src="./photos/moosa-abdullah-memorial-combat-fight-club.webp" alt="Moosa Abdullah" class="memorial-img" loading="lazy"></div>
             <h2 class="memorial-name" data-aos="fade-up" data-aos-delay="400">MOOSA ABDULLAH</h2>
             <p class="memorial-quote" data-aos="fade-up" data-aos-delay="600">"A true warrior never truly leaves the ring; their spirit fights on in every one of us. <br> <strong>Missed beyond words, remembered as a Champion.</strong>"</p>
         </div>
@@ -851,7 +988,7 @@
             const genericMapEmbed = `https://maps.google.com/maps?q=$${encodeURIComponent(data.mapQuery)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
             body.innerHTML = `
-                <iframe src="${genericMapEmbed}" class="modal-img" frameborder="0"></iframe>
+                <iframe src="${genericMapEmbed}" class="modal-img" frameborder="0" loading="lazy"></iframe>
                 <h2>${data.name} BRANCH</h2>
                 <div class="modal-info-grid">
                     <div class="info-box"><h4><i class="fas fa-location-arrow"></i> Location</h4><p>${data.loc}<br><a href="${data.mapUrl}" target="_blank" style="color:var(--dotin-blue);font-weight:600;text-decoration:underline;font-size:0.8rem;"><i class="fas fa-map"></i> View Google Maps</a></p></div>
@@ -868,7 +1005,7 @@
         function closeModal() { document.getElementById('branchModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
         window.onclick = function(e) { if (e.target == document.getElementById('branchModal')) closeModal(); }
 
-        /* Counters and slider scripts remain unchanged */
+        /* Counters and slider scripts */
         const counterIG = document.querySelector('.ig-counter-text');
         function startCounterLoopIG() {
             counterIG.innerText = '0';
@@ -926,6 +1063,31 @@
             const scrollAmount = itemWidth + 40; 
             slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
+
+        /* --- PRO FIGHT NIGHT POPUP LOGIC --- */
+        // Website load aayi 1.5 seconds kazhiyumbol popup varum
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('fightPopup').style.display = 'flex';
+                // Popup varumbol background scroll aavathirikkan
+                document.body.style.overflow = 'hidden'; 
+            }, 1500);
+        });
+
+        // Popup close cheyyan
+        function closeFightPopup() {
+            document.getElementById('fightPopup').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Scroll thirichu kond varan
+        }
+
+        // Popup-nte purathu click cheythalum close aavan
+        window.addEventListener('click', (e) => {
+            const popupOverlay = document.getElementById('fightPopup');
+            if (e.target === popupOverlay) {
+                closeFightPopup();
+            }
+        });
+
     </script>
 </body>
 </html>
